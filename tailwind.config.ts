@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				poppins: ['Poppins', 'sans-serif'],
+				'open-sans': ['"Open Sans"', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +66,31 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				"travel-blue": {
+					50: "#e6f1fe",
+					100: "#cce3fc",
+					200: "#99c7f9",
+					300: "#66abf7",
+					400: "#338ff4",
+					500: "#0073f1",
+					600: "#005cc1",
+					700: "#004591",
+					800: "#002e60",
+					900: "#001730",
+				},
+				"travel-teal": {
+					50: "#e6fbfa",
+					100: "#ccf7f4",
+					200: "#99efe9",
+					300: "#66e7de",
+					400: "#33dfd3",
+					500: "#00d7c8",
+					600: "#00aca0",
+					700: "#008178",
+					800: "#005650",
+					900: "#002b28",
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +113,20 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { 
+						transform: 'translateY(0)'
+					},
+					'50%': { 
+						transform: 'translateY(-5px)'
+					},
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},
