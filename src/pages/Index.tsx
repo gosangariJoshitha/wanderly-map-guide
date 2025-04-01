@@ -40,12 +40,13 @@ const Index = () => {
         <section className="bg-white py-10 md:py-16">
           <div className="container">
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3">
-                Explore India's States
+              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3 bg-gradient-to-r from-travel-blue-500 via-purple-500 to-travel-teal-500 text-transparent bg-clip-text">
+                India's Colorful States
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Discover the cultural diversity and iconic landmarks across Indian states.
-                Each state is represented by a symbol of what it's famous for.
+                A playful look at India's vibrant states and territories! 
+                Each state is represented by a fun symbol of what makes it famous.
+                Click on a state to discover more!
               </p>
             </div>
             
