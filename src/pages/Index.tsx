@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -41,12 +40,11 @@ const Index = () => {
           <div className="container">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3 bg-gradient-to-r from-travel-blue-500 via-purple-500 to-travel-teal-500 text-transparent bg-clip-text">
-                India's Colorful States
+                States and Union Territories of India
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                A playful look at India's vibrant states and territories! 
-                Each state is represented by a fun symbol of what makes it famous.
-                Click on a state to discover more!
+                Explore India's diverse states represented by symbols of what makes each region unique.
+                Hover over a state to learn more, and click to discover its major cities and attractions.
               </p>
             </div>
             
