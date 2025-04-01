@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -40,19 +41,20 @@ const Index = () => {
           <div className="container">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3 bg-gradient-to-r from-travel-blue-500 via-purple-500 to-travel-teal-500 text-transparent bg-clip-text">
-                States and Union Territories of India
+                Map of India
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Explore India's diverse states represented by symbols of what makes each region unique.
-                Hover over a state to learn more, and click to discover its major cities and attractions.
+                View the political map of India displaying all states and union territories.
               </p>
             </div>
             
-            {loading ? (
-              <div className="h-[400px] w-full bg-gray-100 animate-pulse rounded-lg"></div>
-            ) : (
-              <IndiaPoliticalMap />
-            )}
+            <div className="flex justify-center">
+              {loading ? (
+                <div className="h-[400px] w-full bg-gray-100 animate-pulse rounded-lg"></div>
+              ) : (
+                <IndiaPoliticalMap />
+              )}
+            </div>
           </div>
         </section>
         
@@ -112,6 +114,6 @@ const Index = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default Index;
