@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/home/HeroBanner";
-import { IndiaMap } from "@/components/home/IndiaMap";
+import { IndiaPoliticalMap } from "@/components/home/IndiaPoliticalMap";
 import { CityCard } from "@/components/home/CityCard";
 import { City } from "@/types";
 import { fetchCities } from "@/services/dataService";
@@ -36,23 +36,23 @@ const Index = () => {
         {/* Hero Banner */}
         <HeroBanner />
         
-        {/* Interactive Map Section */}
+        {/* Political Map Section */}
         <section className="bg-white py-10 md:py-16">
           <div className="container">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3">
-                Explore India
+                Explore India's States
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Discover the beauty and diversity of India's most popular destinations. 
-                Click on a city to start your virtual journey.
+                Discover the cultural diversity and iconic landmarks across Indian states.
+                Each state is represented by a symbol of what it's famous for.
               </p>
             </div>
             
             {loading ? (
               <div className="h-[400px] w-full bg-gray-100 animate-pulse rounded-lg"></div>
             ) : (
-              <IndiaMap cities={cities} />
+              <IndiaPoliticalMap />
             )}
           </div>
         </section>
