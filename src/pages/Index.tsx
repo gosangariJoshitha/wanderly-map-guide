@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/home/HeroBanner";
-import { CityCard } from "@/components/home/CityCard";
+import { FeaturedCitiesCarousel } from "@/components/home/FeaturedCitiesCarousel";
+import { Button } from "@/components/ui/button";
 import { City } from "@/types";
+import { Link } from "react-router-dom";
 import { fetchCities } from "@/services/dataService";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -48,23 +50,27 @@ const Index = () => {
             </div>
             
             {loading ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {[...Array(6)].map((_, i) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[...Array(3)].map((_, i) => (
                   <div key={i} className="flex flex-col gap-3">
-                    <Skeleton className="h-48 w-full rounded-lg" />
+                    <Skeleton className="h-80 w-full rounded-lg" />
                     <Skeleton className="h-8 w-3/4" />
                     <Skeleton className="h-4 w-full" />
                     <Skeleton className="h-4 w-5/6" />
-                    <Skeleton className="h-10 w-full" />
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {cities.slice(0, 6).map((city) => (
-                  <CityCard key={city.id} city={city} />
-                ))}
-              </div>
+              <>
+                <FeaturedCitiesCarousel cities={cities.slice(0, 6)} />
+                <div className="text-center mt-8">
+                  <Link to="/cities">
+                    <Button variant="outline" className="bg-travel-teal-500 hover:bg-travel-teal-600 text-white border-none">
+                      View All Cities
+                    </Button>
+                  </Link>
+                </div>
+              </>
             )}
           </div>
         </section>

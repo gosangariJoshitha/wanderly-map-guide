@@ -28,11 +28,6 @@ export function HeroBanner() {
               Explore Cities
             </Button>
           </Link>
-          <Link to="/register">
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-travel-blue-900">
-              Join CityWander
-            </Button>
-          </Link>
         </div>
       </div>
     </div>

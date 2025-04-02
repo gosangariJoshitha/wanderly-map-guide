@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CityCard } from "@/components/home/CityCard";
+import { CityPagination } from "@/components/CityPagination";
 import { City } from "@/types";
 import { fetchCities } from "@/services/dataService";
 import { Input } from "@/components/ui/input";
@@ -14,6 +15,8 @@ const Cities = () => {
   const [filteredCities, setFilteredCities] = useState<City[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const citiesPerPage = 6;
 
   useEffect(() => {
     const loadCities = async () => {
@@ -44,7 +47,18 @@ const Cities = () => {
       );
       setFilteredCities(filtered);
     }
+    // Reset to first page when search query changes
+    setCurrentPage(1);
   }, [searchQuery, cities]);
+
+  // Get current page cities
+  const indexOfLastCity = currentPage * citiesPerPage;
+  const indexOfFirstCity = indexOfLastCity - citiesPerPage;
+  const currentCities = filteredCities.slice(indexOfFirstCity, indexOfLastCity);
+  const totalPages = Math.ceil(filteredCities.length / citiesPerPage);
+
+  // Change page
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -74,8 +88,8 @@ const Cities = () => {
         
         <div className="container py-10">
           {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {[...Array(12)].map((_, i) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[...Array(citiesPerPage)].map((_, i) => (
                 <div key={i} className="flex flex-col gap-3">
                   <Skeleton className="h-48 w-full rounded-lg" />
                   <Skeleton className="h-8 w-3/4" />
@@ -88,11 +102,21 @@ const Cities = () => {
           ) : (
             <>
               {filteredCities.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {filteredCities.map((city) => (
-                    <CityCard key={city.id} city={city} />
-                  ))}
-                </div>
+                <>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {currentCities.map((city) => (
+                      <CityCard key={city.id} city={city} />
+                    ))}
+                  </div>
+                  
+                  <div className="flex justify-center mt-8">
+                    <CityPagination
+                      currentPage={currentPage}
+                      totalPages={totalPages}
+                      onPageChange={paginate}
+                    />
+                  </div>
+                </>
               ) : (
                 <div className="text-center py-16">
                   <h2 className="text-2xl font-medium mb-2">No cities found</h2>
