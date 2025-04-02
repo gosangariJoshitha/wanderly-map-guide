@@ -4,7 +4,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Button } from "@/components/ui/button";
 import { City } from "@/types";
 import { Link } from "react-router-dom";
-import { Share2 } from "lucide-react";
+import { Share2, ChevronRight } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 interface FeaturedCitiesCarouselProps {
@@ -40,17 +40,21 @@ export function FeaturedCitiesCarousel({ cities }: FeaturedCitiesCarouselProps) 
                   <img
                     src={city.imageUrl}
                     alt={city.name}
-                    className="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                    <h3 className="text-2xl font-bold mb-1">{city.name}</h3>
-                    <p className="text-sm text-gray-200 mb-3">{city.state}</p>
-                    <p className="line-clamp-2 text-sm mb-4">{city.description}</p>
-                    <div className="flex justify-between items-center">
-                      <Link to={`/city/${city.id}`}>
-                        <Button variant="outline" className="text-white border-white hover:bg-white/20">
+                    <h3 className="text-2xl font-bold mb-1 animate-fade-in">{city.name}</h3>
+                    <p className="text-sm text-gray-200 mb-3 animate-fade-in" style={{ animationDelay: "100ms" }}>{city.state}</p>
+                    <p className="line-clamp-2 text-sm mb-4 animate-fade-in" style={{ animationDelay: "200ms" }}>{city.description}</p>
+                    <div className="flex justify-between items-center animate-fade-in" style={{ animationDelay: "300ms" }}>
+                      <Link to={`/city/${city.id}`} className="group/explore">
+                        <Button 
+                          variant="default" 
+                          className="bg-travel-teal-500 hover:bg-travel-teal-600 text-white flex items-center gap-2 transition-all duration-300 group-hover/explore:pl-6"
+                        >
                           Explore
+                          <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover/explore:translate-x-1" />
                         </Button>
                       </Link>
                       <Button 

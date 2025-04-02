@@ -9,6 +9,7 @@ import { City } from "@/types";
 import { Link } from "react-router-dom";
 import { fetchCities } from "@/services/dataService";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ChevronRight } from "lucide-react";
 
 const Index = () => {
   const [cities, setCities] = useState<City[]>([]);
@@ -40,8 +41,8 @@ const Index = () => {
         {/* Featured Cities Section */}
         <section className="bg-gray-50 py-10 md:py-16">
           <div className="container">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3">
+            <div className="text-center mb-8 animate-fade-in">
+              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3 text-travel-blue-800">
                 Featured Cities
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -62,11 +63,17 @@ const Index = () => {
               </div>
             ) : (
               <>
-                <FeaturedCitiesCarousel cities={cities.slice(0, 6)} />
-                <div className="text-center mt-8">
+                <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
+                  <FeaturedCitiesCarousel cities={cities.slice(0, 6)} />
+                </div>
+                <div className="text-center mt-8 animate-fade-in" style={{ animationDelay: "400ms" }}>
                   <Link to="/cities">
-                    <Button variant="outline" className="bg-travel-teal-500 hover:bg-travel-teal-600 text-white border-none">
+                    <Button 
+                      variant="outline" 
+                      className="bg-travel-teal-500 hover:bg-travel-teal-600 text-white border-none group flex items-center gap-2"
+                    >
                       View All Cities
+                      <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
                   </Link>
                 </div>
@@ -78,18 +85,21 @@ const Index = () => {
         {/* Call to Action */}
         <section className="bg-travel-blue-900 text-white py-16">
           <div className="container text-center">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4 animate-fade-in">
               Ready to Start Your Journey?
             </h2>
-            <p className="text-travel-teal-200 max-w-2xl mx-auto mb-8">
+            <p className="text-travel-teal-200 max-w-2xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: "100ms" }}>
               Sign up for free and get access to personalized recommendations, save your favorite places, and connect with fellow travelers.
             </p>
-            <a 
-              href="/register" 
-              className="inline-flex items-center justify-center bg-travel-teal-500 hover:bg-travel-teal-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-            >
-              Join CityWander Today
-            </a>
+            <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
+              <Link 
+                to="/register" 
+                className="inline-flex items-center justify-center bg-travel-teal-500 hover:bg-travel-teal-600 text-white font-bold py-3 px-6 rounded-lg transition-colors gap-2 group"
+              >
+                Join CityWander Today
+                <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
         </section>
       </main>

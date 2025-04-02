@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MapPin } from "lucide-react";
+import { MapPin, ChevronRight } from "lucide-react";
 
 interface CityCardProps {
   city: City;
@@ -12,7 +12,7 @@ interface CityCardProps {
 
 export function CityCard({ city }: CityCardProps) {
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg">
+    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.01]">
       <div className="relative h-48 overflow-hidden">
         <img
           src={city.imageUrl}
@@ -39,8 +39,12 @@ export function CityCard({ city }: CityCardProps) {
       </CardContent>
       <CardFooter className="pt-1">
         <Link to={`/city/${city.id}`} className="w-full">
-          <Button className="w-full" variant="outline">
+          <Button 
+            className="w-full bg-travel-teal-500 text-white hover:bg-travel-teal-600 group flex items-center justify-center gap-2" 
+            variant="default"
+          >
             Explore
+            <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Button>
         </Link>
       </CardFooter>
