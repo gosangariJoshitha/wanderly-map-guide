@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useToast } from "@/components/ui/use-toast";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeOff } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,9 @@ export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
+  const { login } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,25 +33,28 @@ export function LoginForm() {
       return;
     }
     
-    // In a real app, this would call an authentication API
     setLoading(true);
     
-    // Simulating API call
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await login(email, password, rememberMe);
+      
       toast({
         title: "Success",
         description: "You've successfully logged in!",
       });
       
-      // Store auth state in localStorage
-      if (rememberMe) {
-        localStorage.setItem('authEmail', email);
-        // Note: In a real app, never store passwords in localStorage
-      }
-      
-      navigate("/");
-    }, 1500);
+      // Get the redirect path from location state, or default to home
+      const from = location.state?.from || '/';
+      navigate(from, { replace: true });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to log in. Please check your credentials.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

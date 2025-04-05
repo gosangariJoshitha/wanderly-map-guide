@@ -2,19 +2,42 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
+import { useState, useEffect } from "react";
 
 export function HeroBanner() {
+  const { isAuthenticated } = useAuth();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const backgroundImages = [
+    'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1600&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1526711657229-e7e080ed7aa1?q=80&w=1600&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=1600&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1532664189809-02133fee698d?q=80&w=1600&auto=format&fit=crop'
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
+    }, 5000); // Change image every 5 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative h-[75vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-      {/* Background image with overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ 
-          backgroundImage: 'url(https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1600&auto=format&fit=crop)',
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-travel-blue-900/80 via-travel-blue-800/70 to-travel-blue-900/80"></div>
-      </div>
+      {/* Background image with overlay and fade effect */}
+      {backgroundImages.map((image, index) => (
+        <div 
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
+            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{ backgroundImage: `url(${image})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-travel-blue-900/80 via-travel-blue-800/70 to-travel-blue-900/80"></div>
+        </div>
+      ))}
       
       <div className="container relative z-10 text-white text-center">
         <h1 className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
@@ -27,10 +50,10 @@ export function HeroBanner() {
           <Link to="/cities" className="w-full sm:w-auto">
             <Button 
               size="lg" 
-              className="bg-travel-teal-500 hover:bg-travel-teal-600 text-white w-full sm:w-auto group flex items-center gap-2 animate-pulse"
+              className="bg-travel-teal-500 hover:bg-travel-teal-600 text-white w-full sm:w-auto group flex items-center gap-2"
             >
               Explore Cities
-              <ChevronRight className="transition-transform duration-300 group-hover:translate-x-1" />
+              <ChevronRight />
             </Button>
           </Link>
         </div>

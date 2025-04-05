@@ -4,7 +4,6 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { FeaturedCitiesCarousel } from "@/components/home/FeaturedCitiesCarousel";
-import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { Button } from "@/components/ui/button";
 import { City } from "@/types";
 import { Link } from "react-router-dom";
@@ -83,8 +82,19 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Why Choose Us Section */}
-        <WhyChooseUs />
+        {/* Trusted By Section - Logo section centered */}
+        <section className="py-12 bg-white">
+          <div className="container">
+            <h3 className="text-xl font-semibold text-center mb-8 text-gray-700">Trusted By</h3>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+              <img src="https://placehold.co/150x50/e6e6e6/666?text=Partner+1" alt="Partner 1" className="h-8 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all" />
+              <img src="https://placehold.co/150x50/e6e6e6/666?text=Partner+2" alt="Partner 2" className="h-8 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all" />
+              <img src="https://placehold.co/150x50/e6e6e6/666?text=Partner+3" alt="Partner 3" className="h-8 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all" />
+              <img src="https://placehold.co/150x50/e6e6e6/666?text=Partner+4" alt="Partner 4" className="h-8 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all" />
+              <img src="https://placehold.co/150x50/e6e6e6/666?text=Partner+5" alt="Partner 5" className="h-8 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all" />
+            </div>
+          </div>
+        </section>
       </main>
       
       <Footer />
