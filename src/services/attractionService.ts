@@ -1,3 +1,4 @@
+
 import { Attraction } from "@/types";
 
 const ATTRACTIONS: Record<string, Attraction[]> = {
@@ -225,5 +226,19 @@ export const fetchAttractionsByCity = async (cityId: string): Promise<Attraction
   // In a real app, this would be an API call
   return new Promise(resolve => {
     setTimeout(() => resolve(ATTRACTIONS[cityId] || []), 500);
+  });
+};
+
+export const fetchAttractionById = async (attractionId: string): Promise<Attraction | null> => {
+  // In a real app, this would be an API call to fetch a specific attraction
+  return new Promise(resolve => {
+    // Search for the attraction in all cities
+    for (const cityAttractions of Object.values(ATTRACTIONS)) {
+      const attraction = cityAttractions.find(attr => attr.id === attractionId);
+      if (attraction) {
+        return resolve(attraction);
+      }
+    }
+    resolve(null);
   });
 };

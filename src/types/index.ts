@@ -1,3 +1,4 @@
+
 export interface City {
   id: string;
   name: string;
@@ -38,6 +39,9 @@ export interface Attraction {
     car?: string;
     bus?: BusRoute[];
   };
+  entryFee?: string;
+  timings?: string;
+  bestTimeToVisit?: string;
 }
 
 export interface Review {
