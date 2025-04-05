@@ -1,4 +1,3 @@
-
 export interface City {
   id: string;
   name: string;
@@ -10,6 +9,12 @@ export interface City {
     lat: number;
     lng: number;
   };
+  region: "North" | "South" | "East" | "West";
+  bestTimeToVisit: string;
+  languages: string[];
+  famousFor: string[];
+  population: string;
+  entryFee?: string;
 }
 
 export interface Attraction {

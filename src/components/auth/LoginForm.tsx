@@ -6,11 +6,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Eye, EyeOff } from "lucide-react";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -36,6 +40,13 @@ export function LoginForm() {
         title: "Success",
         description: "You've successfully logged in!",
       });
+      
+      // Store auth state in localStorage
+      if (rememberMe) {
+        localStorage.setItem('authEmail', email);
+        // Note: In a real app, never store passwords in localStorage
+      }
+      
       navigate("/");
     }, 1500);
   };
@@ -68,15 +79,39 @@ export function LoginForm() {
                 Forgot password?
               </Link>
             </div>
-            <Input
-              id="password"
-              type="password"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div className="relative">
+              <Input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button 
+                type="button"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
           </div>
+          
+          <div className="flex items-center space-x-2">
+            <Checkbox 
+              id="rememberMe" 
+              checked={rememberMe} 
+              onCheckedChange={(checked) => setRememberMe(checked === true)}
+            />
+            <label
+              htmlFor="rememberMe"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Remember me
+            </label>
+          </div>
+          
           <Button type="submit" className="w-full" disabled={loading}>
             {loading ? "Logging in..." : "Log in"}
           </Button>

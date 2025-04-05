@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { FeaturedCitiesCarousel } from "@/components/home/FeaturedCitiesCarousel";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { Button } from "@/components/ui/button";
 import { City } from "@/types";
 import { Link } from "react-router-dom";
@@ -82,26 +83,8 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Call to Action */}
-        <section className="bg-travel-blue-900 text-white py-16">
-          <div className="container text-center">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4 animate-fade-in">
-              Ready to Start Your Journey?
-            </h2>
-            <p className="text-travel-teal-200 max-w-2xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Sign up for free and get access to personalized recommendations, save your favorite places, and connect with fellow travelers.
-            </p>
-            <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
-              <Link 
-                to="/register" 
-                className="inline-flex items-center justify-center bg-travel-teal-500 hover:bg-travel-teal-600 text-white font-bold py-3 px-6 rounded-lg transition-colors gap-2 group"
-              >
-                Join CityWander Today
-                <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </div>
-        </section>
+        {/* Why Choose Us Section */}
+        <WhyChooseUs />
       </main>
       
       <Footer />
