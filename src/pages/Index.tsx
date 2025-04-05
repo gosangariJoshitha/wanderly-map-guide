@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { fetchCities } from "@/services/dataService";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronRight } from "lucide-react";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 
 const Index = () => {
   const [cities, setCities] = useState<City[]>([]);
@@ -37,6 +38,9 @@ const Index = () => {
       <main className="flex-grow">
         {/* Hero Banner */}
         <HeroBanner />
+        
+        {/* Why Choose CityWander Section */}
+        <WhyChooseUs />
         
         {/* Featured Cities Section */}
         <section className="bg-gray-50 py-10 md:py-16">
@@ -79,20 +83,6 @@ const Index = () => {
                 </div>
               </>
             )}
-          </div>
-        </section>
-        
-        {/* Trusted By Section - Logo section centered */}
-        <section className="py-12 bg-white">
-          <div className="container">
-            <h3 className="text-xl font-semibold text-center mb-8 text-gray-700">Trusted By</h3>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-              <img src="https://placehold.co/150x50/e6e6e6/666?text=Partner+1" alt="Partner 1" className="h-8 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all" />
-              <img src="https://placehold.co/150x50/e6e6e6/666?text=Partner+2" alt="Partner 2" className="h-8 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all" />
-              <img src="https://placehold.co/150x50/e6e6e6/666?text=Partner+3" alt="Partner 3" className="h-8 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all" />
-              <img src="https://placehold.co/150x50/e6e6e6/666?text=Partner+4" alt="Partner 4" className="h-8 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all" />
-              <img src="https://placehold.co/150x50/e6e6e6/666?text=Partner+5" alt="Partner 5" className="h-8 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all" />
-            </div>
           </div>
         </section>
       </main>

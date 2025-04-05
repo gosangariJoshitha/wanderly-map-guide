@@ -8,6 +8,7 @@ import { AttractionsList } from "@/components/city/AttractionsList";
 import { City } from "@/types";
 import { fetchCityById } from "@/services/dataService";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Calendar, Globe, Users, Tag, MapPin } from "lucide-react";
 
 const CityPage = () => {
   const { cityId } = useParams<{ cityId: string }>();
@@ -93,9 +94,51 @@ const CityPage = () => {
       
       <main className="flex-grow">
         <CityHeader city={city} />
-        <div className="container py-4">
-          <p className="text-lg text-gray-800">{city.description}</p>
+        
+        <div className="container py-6">
+          <div className="bg-white border border-gray-100 rounded-lg p-6 shadow-sm mb-8">
+            <p className="text-lg text-gray-800 mb-6">{city.description}</p>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-4 text-sm mt-6">
+              <div className="flex items-center gap-2 text-gray-700">
+                <Calendar className="h-5 w-5 text-travel-teal-500" />
+                <div>
+                  <span className="block font-medium">Best Time to Visit</span>
+                  <span>{city.bestTimeToVisit}</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <Globe className="h-5 w-5 text-travel-teal-500" />
+                <div>
+                  <span className="block font-medium">Languages</span>
+                  <span>{city.languages.slice(0, 3).join(", ")}</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <Users className="h-5 w-5 text-travel-teal-500" />
+                <div>
+                  <span className="block font-medium">Population</span>
+                  <span>{city.population}</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <Tag className="h-5 w-5 text-travel-teal-500" />
+                <div>
+                  <span className="block font-medium">Famous For</span>
+                  <span>{city.famousFor?.slice(0, 2).join(", ")}</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <MapPin className="h-5 w-5 text-travel-teal-500" />
+                <div>
+                  <span className="block font-medium">Region</span>
+                  <span>{city.region} India</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        
         <AttractionsList cityId={cityId as string} />
       </main>
       

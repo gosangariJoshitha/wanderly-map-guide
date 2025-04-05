@@ -50,7 +50,7 @@ export function HeroBanner() {
           <Link to="/cities" className="w-full sm:w-auto">
             <Button 
               size="lg" 
-              className="bg-travel-teal-500 hover:bg-travel-teal-600 text-white w-full sm:w-auto group flex items-center gap-2"
+              className="bg-travel-teal-500 hover:bg-travel-teal-600 text-white w-full sm:w-auto flex items-center gap-2"
             >
               Explore Cities
               <ChevronRight />
