@@ -22,7 +22,7 @@ import { toast } from "@/hooks/use-toast";
 export function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
-  const { isAuthenticated, logout, user } = useAuth();
+  const { isAuthenticated, logout, currentUser } = useAuth();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,8 +86,8 @@ export function Navbar() {
                           <User className="h-5 w-5 text-travel-teal-600" />
                         </div>
                         <div>
-                          <p className="font-medium">Hello, {user?.username || 'Traveler'}</p>
-                          <p className="text-xs text-gray-500">{user?.email}</p>
+                          <p className="font-medium">Hello, {currentUser?.username || 'Traveler'}</p>
+                          <p className="text-xs text-gray-500">{currentUser?.email}</p>
                         </div>
                       </div>
                       <Button variant="outline" size="sm" onClick={handleLogout} className="w-full">
@@ -148,8 +148,8 @@ export function Navbar() {
                     <div className="p-2 flex items-center border rounded-md">
                       <User className="h-4 w-4 mr-2" />
                       <div>
-                        <p className="text-sm font-medium">Hello, {user?.username || 'Traveler'}</p>
-                        <p className="text-xs text-gray-500">{user?.email}</p>
+                        <p className="text-sm font-medium">Hello, {currentUser?.username || 'Traveler'}</p>
+                        <p className="text-xs text-gray-500">{currentUser?.email}</p>
                       </div>
                     </div>
                     <Button 

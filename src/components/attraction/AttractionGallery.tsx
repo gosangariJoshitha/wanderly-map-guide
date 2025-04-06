@@ -22,11 +22,16 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
     return null;
   }
 
+  // Handler for the carousel index change
+  const handleIndexChange = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   return (
     <div className={cn("space-y-4", className)}>
       <Carousel
         className="w-full"
-        onSelect={(index) => setCurrentIndex(index)}
+        onSelect={handleIndexChange}
       >
         <CarouselContent>
           {images.map((imageUrl, index) => (

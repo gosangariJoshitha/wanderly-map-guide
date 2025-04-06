@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AttractionHeader } from "@/components/attraction/AttractionHeader";
@@ -13,13 +13,16 @@ import { fetchAttractionById } from "@/services/attractionService";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Clock, Calendar, Utensils, Tag, Ticket } from "lucide-react";
+import { MapPin, Clock, Calendar, Utensils, Tag, Ticket, Share2, Info } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/hooks/use-toast";
 
 const AttractionPage = () => {
   const { attractionId } = useParams<{ attractionId: string }>();
   const [attraction, setAttraction] = useState<Attraction | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadAttraction = async () => {
@@ -45,6 +48,27 @@ const AttractionPage = () => {
 
     loadAttraction();
   }, [attractionId]);
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: attraction?.name || "Check out this attraction",
+        text: `Check out ${attraction?.name} on CityWander`,
+        url: window.location.href
+      })
+      .then(() => toast({ title: "Shared successfully!" }))
+      .catch((error) => console.log('Error sharing:', error));
+    } else {
+      // Fallback for browsers that don't support Web Share API
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => toast({ title: "Link copied to clipboard!" }))
+        .catch(() => toast({ title: "Failed to copy link", variant: "destructive" }));
+    }
+  };
+
+  const handleTravelInfo = () => {
+    navigate('/travel-guide', { state: { cityId: attraction?.cityId } });
+  };
 
   if (loading) {
     return (
@@ -94,7 +118,7 @@ const AttractionPage = () => {
     );
   }
 
-  // Mock gallery images (in a real app, these would come from the backend)
+  // Gallery images for the attraction
   const galleryImages = [
     attraction.imageUrl,
     ...(attraction.galleryImages || []),
@@ -108,6 +132,26 @@ const AttractionPage = () => {
         <AttractionHeader attraction={attraction} />
         
         <div className="container py-6">
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-3 mb-6">
+            <Button 
+              variant="outline" 
+              className="flex items-center gap-2" 
+              onClick={handleShare}
+            >
+              <Share2 className="h-4 w-4" />
+              Share
+            </Button>
+            <Button 
+              variant="outline" 
+              className="flex items-center gap-2 bg-travel-teal-50 text-travel-teal-600 hover:bg-travel-teal-100 border-travel-teal-200"
+              onClick={handleTravelInfo}
+            >
+              <Info className="h-4 w-4" />
+              Travel Guide
+            </Button>
+          </div>
+          
           {/* Image Gallery */}
           <div className="mb-8">
             <AttractionGallery images={galleryImages} />
@@ -118,48 +162,48 @@ const AttractionPage = () => {
             <div className="lg:col-span-2 space-y-8">
               <Card>
                 <CardHeader>
-                  <CardTitle>About {attraction.name}</CardTitle>
+                  <CardTitle className="text-2xl text-travel-blue-600">About {attraction.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-800">{attraction.description}</p>
                   
-                  <div className="flex flex-wrap gap-4 mt-6">
+                  <div className="flex flex-wrap gap-5 mt-6">
                     {attraction.entryFee && (
-                      <div className="flex items-center gap-2 text-gray-700">
-                        <Ticket className="h-5 w-5 text-travel-teal-500" />
+                      <div className="flex items-center gap-3 text-gray-700">
+                        <Ticket className="h-6 w-6 text-travel-teal-500" />
                         <div>
-                          <span className="block font-medium">Entry Fee</span>
-                          <span>{attraction.entryFee}</span>
+                          <span className="block font-semibold text-lg text-travel-blue-600">Entry Fee</span>
+                          <span className="text-base">{attraction.entryFee}</span>
                         </div>
                       </div>
                     )}
                     
                     {attraction.timings && (
-                      <div className="flex items-center gap-2 text-gray-700">
-                        <Clock className="h-5 w-5 text-travel-teal-500" />
+                      <div className="flex items-center gap-3 text-gray-700">
+                        <Clock className="h-6 w-6 text-travel-teal-500" />
                         <div>
-                          <span className="block font-medium">Timings</span>
-                          <span>{attraction.timings}</span>
+                          <span className="block font-semibold text-lg text-travel-blue-600">Timings</span>
+                          <span className="text-base">{attraction.timings}</span>
                         </div>
                       </div>
                     )}
                     
                     {attraction.bestTimeToVisit && (
-                      <div className="flex items-center gap-2 text-gray-700">
-                        <Calendar className="h-5 w-5 text-travel-teal-500" />
+                      <div className="flex items-center gap-3 text-gray-700">
+                        <Calendar className="h-6 w-6 text-travel-teal-500" />
                         <div>
-                          <span className="block font-medium">Best Time to Visit</span>
-                          <span>{attraction.bestTimeToVisit}</span>
+                          <span className="block font-semibold text-lg text-travel-blue-600">Best Time to Visit</span>
+                          <span className="text-base">{attraction.bestTimeToVisit}</span>
                         </div>
                       </div>
                     )}
                     
                     {attraction.popularFor && (
-                      <div className="flex items-center gap-2 text-gray-700">
-                        <Tag className="h-5 w-5 text-travel-teal-500" />
+                      <div className="flex items-center gap-3 text-gray-700">
+                        <Tag className="h-6 w-6 text-travel-teal-500" />
                         <div>
-                          <span className="block font-medium">Popular For</span>
-                          <span>{attraction.popularFor}</span>
+                          <span className="block font-semibold text-lg text-travel-blue-600">Popular For</span>
+                          <span className="text-base">{attraction.popularFor}</span>
                         </div>
                       </div>
                     )}
@@ -168,10 +212,10 @@ const AttractionPage = () => {
               </Card>
               
               {/* Local Cuisine Section */}
-              {attraction.localCuisine && (
+              {attraction.localCuisine && attraction.localCuisine.length > 0 && (
                 <Card>
                   <CardHeader>
-                    <CardTitle>Local Cuisine</CardTitle>
+                    <CardTitle className="text-2xl text-travel-blue-600">Local Cuisine</CardTitle>
                     <CardDescription>
                       Famous food options near {attraction.name}
                     </CardDescription>
@@ -179,11 +223,14 @@ const AttractionPage = () => {
                   <CardContent>
                     <div className="space-y-4">
                       {attraction.localCuisine.map((cuisine, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                          <Utensils className="h-5 w-5 text-travel-teal-500 mt-1" />
+                        <div key={index} className="flex items-start gap-3 p-3 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors">
+                          <Utensils className="h-6 w-6 text-travel-teal-500 mt-1" />
                           <div>
-                            <h4 className="font-medium">{cuisine.name}</h4>
-                            <p className="text-sm text-gray-600">{cuisine.description}</p>
+                            <h4 className="font-semibold text-lg">{cuisine.name}</h4>
+                            <p className="text-gray-600">{cuisine.description}</p>
+                            {cuisine.price && (
+                              <p className="text-sm font-medium text-travel-teal-600 mt-1">Price Range: {cuisine.price}</p>
+                            )}
                           </div>
                         </div>
                       ))}
@@ -194,7 +241,7 @@ const AttractionPage = () => {
             
               <Card>
                 <CardHeader>
-                  <CardTitle>Transportation Options</CardTitle>
+                  <CardTitle className="text-2xl text-travel-blue-600">Transportation Options</CardTitle>
                   <CardDescription>
                     How to reach {attraction.name} from different parts of the city
                   </CardDescription>
@@ -206,7 +253,7 @@ const AttractionPage = () => {
               
               <Card>
                 <CardHeader>
-                  <CardTitle>Reviews & Ratings</CardTitle>
+                  <CardTitle className="text-2xl text-travel-blue-600">Reviews & Ratings</CardTitle>
                   <CardDescription>
                     Visitor experiences at {attraction.name}
                   </CardDescription>
@@ -221,7 +268,7 @@ const AttractionPage = () => {
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Location</CardTitle>
+                  <CardTitle className="text-2xl text-travel-blue-600">Location</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="bg-gray-100 rounded-md p-4 mb-4 text-sm">
@@ -238,7 +285,7 @@ const AttractionPage = () => {
               
               <Card>
                 <CardHeader>
-                  <CardTitle>Nearby Hotels</CardTitle>
+                  <CardTitle className="text-2xl text-travel-blue-600">Nearby Hotels</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <NearbyHotels hotels={attraction.nearbyHotels} />
