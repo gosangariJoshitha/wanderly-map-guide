@@ -5,38 +5,28 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CityHeader } from "@/components/city/CityHeader";
 import { AttractionsList } from "@/components/city/AttractionsList";
-import { AttractionsGallery } from "@/components/city/AttractionsGallery";
-import { City, Attraction } from "@/types";
+import { City } from "@/types";
 import { fetchCityById } from "@/services/dataService";
-import { fetchAttractionsByCity } from "@/services/attractionService";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Calendar, Globe, Users, Tag, MapPin, Info } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { toast } from "@/components/ui/use-toast";
+import { Calendar, Globe, Users, Tag, MapPin } from "lucide-react";
 
 const CityPage = () => {
   const { cityId } = useParams<{ cityId: string }>();
   const [city, setCity] = useState<City | null>(null);
-  const [attractions, setAttractions] = useState<Attraction[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const loadData = async () => {
+    const loadCity = async () => {
       if (!cityId) return;
       
       setLoading(true);
       setError(null);
       
       try {
-        const [cityData, attractionsData] = await Promise.all([
-          fetchCityById(cityId),
-          fetchAttractionsByCity(cityId)
-        ]);
-        
-        if (cityData) {
-          setCity(cityData);
-          setAttractions(attractionsData);
+        const data = await fetchCityById(cityId);
+        if (data) {
+          setCity(data);
         } else {
           setError("City not found");
         }
@@ -48,15 +38,8 @@ const CityPage = () => {
       }
     };
 
-    loadData();
+    loadCity();
   }, [cityId]);
-
-  const handleTravelInfo = () => {
-    toast({
-      title: `Travel Information for ${city?.name}`,
-      description: `The best time to visit ${city?.name} is ${city?.bestTimeToVisit}. Common languages spoken are ${city?.languages.slice(0, 3).join(", ")}.`,
-    });
-  };
 
   if (loading) {
     return (
@@ -105,11 +88,6 @@ const CityPage = () => {
     );
   }
 
-  // Group attractions by category
-  const touristAttractions = attractions.filter(a => a.category === "tourist");
-  const temples = attractions.filter(a => a.category === "temple");
-  const otherAttractions = attractions.filter(a => a.category === "other");
-
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -121,7 +99,7 @@ const CityPage = () => {
           <div className="bg-white border border-gray-100 rounded-lg p-6 shadow-sm mb-8">
             <p className="text-lg text-gray-800 mb-6">{city.description}</p>
             
-            <div className="flex flex-wrap gap-6 text-sm mt-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-4 text-sm mt-6">
               <div className="flex items-center gap-2 text-gray-700">
                 <Calendar className="h-5 w-5 text-travel-teal-500" />
                 <div>
@@ -157,35 +135,6 @@ const CityPage = () => {
                   <span>{city.region} India</span>
                 </div>
               </div>
-            </div>
-
-            <div className="mt-6">
-              <Button 
-                variant="outline" 
-                onClick={handleTravelInfo}
-                className="flex items-center gap-2"
-              >
-                <Info className="h-4 w-4" />
-                <span>Travel Information</span>
-              </Button>
-            </div>
-          </div>
-
-          <div className="mb-8">
-            <h2 className="text-2xl font-poppins font-bold mb-6">Explore {city.name} Through Images</h2>
-            <div className="space-y-8">
-              <AttractionsGallery 
-                attractions={touristAttractions} 
-                title="Tourist Attractions"
-              />
-              <AttractionsGallery 
-                attractions={temples} 
-                title="Temples"
-              />
-              <AttractionsGallery 
-                attractions={otherAttractions} 
-                title="Other Attractions"
-              />
             </div>
           </div>
         </div>

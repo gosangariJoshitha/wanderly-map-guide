@@ -1,69 +1,58 @@
 
-import { Check } from "lucide-react";
+import { MapPin, Hotel, Calendar, Building } from "lucide-react";
 
 export function WhyChooseUs() {
-  const features = [
-    "Authentic local experiences curated by experts",
-    "Detailed guides with hidden gems and local favorites",
-    "Personalized trip planning assistance",
-    "Real traveler reviews and recommendations",
-    "Regularly updated information on attractions",
-    "Offline maps and guides for convenience"
-  ];
-
   return (
-    <section className="py-16 bg-white">
-      <div className="container">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-          <div className="lg:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-travel-blue-600">
-              Why Choose CityWander?
-            </h2>
-            <p className="text-gray-600 mb-8">
-              We're passionate about helping travelers discover the authentic heart of India's cities.
-              With CityWander, you'll experience destinations like a local, finding hidden gems
-              and creating unforgettable memories.
+    <section className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            Why Choose CityWander?
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Your comprehensive guide to exploring India's incredible destinations
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="bg-white rounded-lg p-6 shadow-sm">
+            <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <MapPin className="h-8 w-8 text-orange-500" />
+            </div>
+            <h3 className="text-xl font-bold text-center mb-2">Discover Cities</h3>
+            <p className="text-gray-600 text-center">
+              Explore detailed guides for India's most popular cities and hidden gems
             </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  <div className="bg-travel-blue-600 rounded-full p-1 text-white mt-0.5">
-                    <Check className="h-4 w-4" />
-                  </div>
-                  <span className="text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
           </div>
-          
-          <div className="lg:w-1/2">
-            <div className="grid grid-cols-2 gap-4 md:gap-6">
-              <div className="space-y-4 md:space-y-6 pt-8">
-                <img 
-                  src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&q=80&w=800" 
-                  alt="Mumbai street" 
-                  className="rounded-lg shadow-md aspect-[3/4] object-cover"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5?auto=format&fit=crop&q=80&w=800" 
-                  alt="Taj Mahal" 
-                  className="rounded-lg shadow-md aspect-[3/4] object-cover"
-                />
-              </div>
-              <div className="space-y-4 md:space-y-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=800" 
-                  alt="Delhi market" 
-                  className="rounded-lg shadow-md aspect-[3/4] object-cover"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1566552881560-0be862a7c445?auto=format&fit=crop&q=80&w=800" 
-                  alt="Varanasi ghats" 
-                  className="rounded-lg shadow-md aspect-[3/4] object-cover"
-                />
-              </div>
+
+          <div className="bg-white rounded-lg p-6 shadow-sm">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <Building className="h-8 w-8 text-blue-500" />
             </div>
+            <h3 className="text-xl font-bold text-center mb-2">Iconic Attractions</h3>
+            <p className="text-gray-600 text-center">
+              Learn about famous landmarks, temples, and cultural experiences
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg p-6 shadow-sm">
+            <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <Calendar className="h-8 w-8 text-orange-500" />
+            </div>
+            <h3 className="text-xl font-bold text-center mb-2">Travel Planning</h3>
+            <p className="text-gray-600 text-center">
+              Get insights on the best times to visit and what to expect
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg p-6 shadow-sm">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <Hotel className="h-8 w-8 text-blue-500" />
+            </div>
+            <h3 className="text-xl font-bold text-center mb-2">Accommodation</h3>
+            <p className="text-gray-600 text-center">
+              Find the perfect places to stay near your favorite attractions
+            </p>
           </div>
         </div>
       </div>
