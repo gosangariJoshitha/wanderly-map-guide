@@ -1,3 +1,4 @@
+
 import { Attraction } from "@/types";
 
 // Tourist Places in Mumbai
@@ -13,7 +14,7 @@ export const touristAttractions: Attraction[] = [
     reviews: [
       {
         id: "rm1",
-        userId: "um1",
+        user: "um1",
         username: "SeaLover",
         rating: 4.5,
         comment: "Beautiful monument with great views of the Arabian Sea.",
@@ -54,7 +55,7 @@ export const touristAttractions: Attraction[] = [
     reviews: [
       {
         id: "rm2",
-        userId: "um2",
+        user: "um2",
         username: "CityExplorer",
         rating: 5,
         comment: "Beautiful at night when the lights make it look like a necklace.",
@@ -99,7 +100,7 @@ export const templeAttractions: Attraction[] = [
     reviews: [
       {
         id: "rm3",
-        userId: "um3",
+        user: "um3",
         username: "DevotedVisitor",
         rating: 5,
         comment: "One of the most revered Ganesha temples. Peaceful despite the crowds.",
@@ -144,7 +145,7 @@ export const otherAttractions: Attraction[] = [
     reviews: [
       {
         id: "rm4",
-        userId: "um4",
+        user: "um4",
         username: "HistoryExplorer",
         rating: 4.5,
         comment: "Amazing Buddhist rock-cut monuments dating back to 1st century BCE.",

@@ -1,13 +1,13 @@
 
 import { useState } from 'react';
-import { Attraction, BusRoute } from "@/types";
+import { TransportOption, BusRoute } from "@/types";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Car, Bus } from "lucide-react";
 
 interface TransportOptionsProps {
-  transport: Attraction["transportOptions"];
+  transport: TransportOption;
 }
 
 export function TransportOptions({ transport }: TransportOptionsProps) {

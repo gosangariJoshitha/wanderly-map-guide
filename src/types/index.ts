@@ -1,3 +1,4 @@
+
 export interface City {
   id: string;
   name: string;
@@ -11,27 +12,43 @@ export interface City {
   attractionsCount: number;
   population: string;
   famousFor?: string[];
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
+  entryFee?: string;
 }
 
 export interface Review {
   id: string;
   user: string;
+  username: string; // Adding username field
   rating: number;
   comment: string;
   date: string;
 }
 
-export interface TransportOption {
-  type: string;
-  details: string;
+export interface BusRoute {
+  busNumber: string;
+  from: string;
+  to: string;
+  stops: string[];
+  frequency: string;
 }
 
-export interface Hotel {
+export interface TransportOption {
+  car: string;
+  bus?: BusRoute[];
+}
+
+export interface NearbyHotel {
   id: string;
   name: string;
   rating: number;
   price: string;
   imageUrl: string;
+  distance?: string;
+  bookingLink?: string;
 }
 
 // Add the following types if they don't exist already
@@ -49,6 +66,7 @@ export interface Attraction {
   imageUrl: string;
   galleryImages?: string[];
   category: "tourist" | "temple" | "other";
+  cityId?: string;
   location: {
     address: string;
     coordinates?: {
@@ -58,11 +76,11 @@ export interface Attraction {
   };
   rating: number;
   reviews: Review[];
-  transportOptions: TransportOption[];
+  transportOptions: TransportOption;
   timings?: string;
   entryFee?: string;
   bestTimeToVisit?: string;
   popularFor?: string;
   localCuisine?: Cuisine[];
-  nearbyHotels: Hotel[];
+  nearbyHotels?: NearbyHotel[];
 }

@@ -13,7 +13,7 @@ export const touristAttractions: Attraction[] = [
     reviews: [
       {
         id: "r1",
-        userId: "u1",
+        user: "u1",
         username: "TravelExplorer",
         rating: 5,
         comment: "A must-visit landmark in Hyderabad! The architecture is stunning and the surrounding market is vibrant.",
@@ -21,7 +21,7 @@ export const touristAttractions: Attraction[] = [
       },
       {
         id: "r2",
-        userId: "u2",
+        user: "u2",
         username: "HistoryBuff",
         rating: 4.5,
         comment: "Incredible historical monument. The view from the top is worth the climb.",
@@ -62,7 +62,7 @@ export const touristAttractions: Attraction[] = [
     reviews: [
       {
         id: "r3",
-        userId: "u3",
+        user: "u3",
         username: "HistoryLover",
         rating: 5,
         comment: "One of the best preserved forts in India. The sound and light show is fantastic!",
@@ -103,7 +103,7 @@ export const touristAttractions: Attraction[] = [
     reviews: [
       {
         id: "r4",
-        userId: "u4",
+        user: "u4",
         username: "ArtEnthusiast",
         rating: 5,
         comment: "The collection is breathtaking! Plan to spend at least half a day here.",
@@ -144,7 +144,7 @@ export const touristAttractions: Attraction[] = [
     reviews: [
       {
         id: "r5",
-        userId: "u5",
+        user: "u5",
         username: "FilmBuff",
         rating: 4,
         comment: "Great place for film enthusiasts. The guided tour is worth it.",
@@ -185,7 +185,7 @@ export const touristAttractions: Attraction[] = [
     reviews: [
       {
         id: "r6",
-        userId: "u6",
+        user: "u6",
         username: "NatureEnthusiast",
         rating: 4.5,
         comment: "Beautiful place for evening walks and boat rides.",
@@ -230,7 +230,7 @@ export const templeAttractions: Attraction[] = [
     reviews: [
       {
         id: "r7",
-        userId: "u7",
+        user: "u7",
         username: "SpiritualSeeker",
         rating: 5,
         comment: "Peaceful atmosphere and beautiful architecture. The view of the city is amazing.",
@@ -271,7 +271,7 @@ export const templeAttractions: Attraction[] = [
     reviews: [
       {
         id: "r8",
-        userId: "u8",
+        user: "u8",
         username: "HistoricalPlaces",
         rating: 4.5,
         comment: "A magnificent mosque with historical significance.",
@@ -312,7 +312,7 @@ export const templeAttractions: Attraction[] = [
     reviews: [
       {
         id: "r9",
-        userId: "u9",
+        user: "u9",
         username: "DevoteeVisitor",
         rating: 5,
         comment: "Very peaceful temple. The Rath Yatra is a must-see event.",
@@ -353,7 +353,7 @@ export const templeAttractions: Attraction[] = [
     reviews: [
       {
         id: "r10",
-        userId: "u10",
+        user: "u10",
         username: "VisaSeeker",
         rating: 5,
         comment: "The temple has a unique tradition. Many people claim their visa wishes were granted after visiting.",
@@ -394,7 +394,7 @@ export const templeAttractions: Attraction[] = [
     reviews: [
       {
         id: "r11",
-        userId: "u11",
+        user: "u11",
         username: "LocalDevotee",
         rating: 4.5,
         comment: "Beautiful temple with strong local significance. Bonalu celebrations are spectacular.",
@@ -439,7 +439,7 @@ export const otherAttractions: Attraction[] = [
     reviews: [
       {
         id: "r12",
-        userId: "u12",
+        user: "u12",
         username: "HistoryBuff2",
         rating: 4,
         comment: "Fascinating collection of royal artifacts. The solid gold tiffin box is incredible!",
@@ -480,7 +480,7 @@ export const otherAttractions: Attraction[] = [
     reviews: [
       {
         id: "r13",
-        userId: "u13",
+        user: "u13",
         username: "FamilyTraveler",
         rating: 4,
         comment: "Great place for an evening out with kids. The laser show is entertaining.",
@@ -521,7 +521,7 @@ export const otherAttractions: Attraction[] = [
     reviews: [
       {
         id: "r14",
-        userId: "u14",
+        user: "u14",
         username: "WildlifeEnthusiast",
         rating: 4.5,
         comment: "Well-maintained zoo with a good variety of animals. The safari is worth trying.",
@@ -562,7 +562,7 @@ export const otherAttractions: Attraction[] = [
     reviews: [
       {
         id: "r15",
-        userId: "u15",
+        user: "u15",
         username: "CraftLover",
         rating: 4.5,
         comment: "Great place to buy authentic handicrafts and experience folk culture.",
@@ -603,7 +603,7 @@ export const otherAttractions: Attraction[] = [
     reviews: [
       {
         id: "r16",
-        userId: "u16",
+        user: "u16",
         username: "NatureWalker",
         rating: 5,
         comment: "Perfect for morning walks and bird watching. A green oasis in the city.",

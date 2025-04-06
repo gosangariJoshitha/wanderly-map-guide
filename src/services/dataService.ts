@@ -17,6 +17,7 @@ export const CITIES: City[] = [
     languages: ["Marathi", "Hindi", "English"],
     famousFor: ["Bollywood", "Gateway of India", "Marine Drive"],
     population: "20.4 million",
+    currency: "Indian Rupee",
     entryFee: "Free"
   },
   {
@@ -35,6 +36,7 @@ export const CITIES: City[] = [
     languages: ["Telugu", "Urdu", "Hindi", "English"],
     famousFor: ["Biryani", "Charminar", "Golconda Fort"],
     population: "10.5 million",
+    currency: "Indian Rupee",
     entryFee: "Free"
   },
   {
