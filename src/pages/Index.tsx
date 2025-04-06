@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { fetchCities } from "@/services/dataService";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronRight } from "lucide-react";
-import { WhyChooseUs } from "@/components/home/WhyChooseUs";
+import { HowItWorks } from "@/components/home/HowItWorks";
 
 const Index = () => {
   const [cities, setCities] = useState<City[]>([]);
@@ -39,8 +39,8 @@ const Index = () => {
         {/* Hero Banner */}
         <HeroBanner />
         
-        {/* Why Choose CityWander Section */}
-        <WhyChooseUs />
+        {/* How It Works Section (replacing Why Choose CityWander) */}
+        <HowItWorks />
         
         {/* Featured Cities Section */}
         <section className="bg-gray-50 py-10 md:py-16">

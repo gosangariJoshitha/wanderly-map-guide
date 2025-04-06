@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MapPin, Search, Menu, X, User } from "lucide-react";
+import { MapPin, Search, Menu, User } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import {
   Drawer,
@@ -12,11 +12,17 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { toast } from "@/hooks/use-toast";
 
 export function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout, user } = useAuth();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,6 +34,7 @@ export function Navbar() {
   const handleLogout = () => {
     logout();
     navigate("/");
+    toast({ title: "Logged out successfully" });
   };
 
   return (
@@ -65,9 +72,31 @@ export function Navbar() {
           </Link>
           <div className="flex items-center gap-2">
             {isAuthenticated ? (
-              <Button variant="outline" size="sm" onClick={handleLogout}>
-                Log out
-              </Button>
+              <>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button variant="ghost" size="icon" className="rounded-full">
+                      <User className="h-5 w-5" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-60 p-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <div className="h-10 w-10 rounded-full bg-travel-teal-100 flex items-center justify-center">
+                          <User className="h-5 w-5 text-travel-teal-600" />
+                        </div>
+                        <div>
+                          <p className="font-medium">Hello, {user?.username || 'Traveler'}</p>
+                          <p className="text-xs text-gray-500">{user?.email}</p>
+                        </div>
+                      </div>
+                      <Button variant="outline" size="sm" onClick={handleLogout} className="w-full">
+                        Log out
+                      </Button>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </>
             ) : (
               <>
                 <Link to="/login">
@@ -116,13 +145,13 @@ export function Navbar() {
                 </Link>
                 {isAuthenticated ? (
                   <>
-                    <Link 
-                      to="/profile" 
-                      className="text-sm font-medium p-2 hover:bg-accent rounded-md flex items-center"
-                    >
+                    <div className="p-2 flex items-center border rounded-md">
                       <User className="h-4 w-4 mr-2" />
-                      Profile
-                    </Link>
+                      <div>
+                        <p className="text-sm font-medium">Hello, {user?.username || 'Traveler'}</p>
+                        <p className="text-xs text-gray-500">{user?.email}</p>
+                      </div>
+                    </div>
                     <Button 
                       variant="outline" 
                       className="w-full justify-start" 

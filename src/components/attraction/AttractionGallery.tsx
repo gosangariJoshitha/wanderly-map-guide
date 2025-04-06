@@ -26,7 +26,7 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
     <div className={cn("space-y-4", className)}>
       <Carousel
         className="w-full"
-        onSelect={(selectedIndex) => setCurrentIndex(selectedIndex)}
+        onSelect={(index) => setCurrentIndex(index)}
       >
         <CarouselContent>
           {images.map((imageUrl, index) => (

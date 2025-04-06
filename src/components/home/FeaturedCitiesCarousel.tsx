@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import { City } from "@/types";
@@ -20,13 +20,32 @@ export function FeaturedCitiesCarousel({ cities }: FeaturedCitiesCarouselProps) 
         url: `${window.location.origin}/city/${city.id}`,
       })
         .then(() => toast({ title: "Shared successfully" }))
-        .catch((error) => console.error("Error sharing:", error));
+        .catch((error) => {
+          console.error("Error sharing:", error);
+          // Fallback if sharing fails
+          copyToClipboard(city);
+        });
     } else {
       // Fallback for browsers that don't support Web Share API
-      const url = `${window.location.origin}/city/${city.id}`;
-      navigator.clipboard.writeText(url);
-      toast({ title: "Link copied to clipboard", description: "You can now share it manually" });
+      copyToClipboard(city);
     }
+  };
+
+  const copyToClipboard = (city: City) => {
+    const url = `${window.location.origin}/city/${city.id}`;
+    navigator.clipboard.writeText(url)
+      .then(() => toast({ 
+        title: "Link copied to clipboard", 
+        description: "You can now share it manually" 
+      }))
+      .catch(err => {
+        console.error('Failed to copy:', err);
+        toast({ 
+          title: "Couldn't copy to clipboard", 
+          description: "Please try again",
+          variant: "destructive"
+        });
+      });
   };
 
   return (

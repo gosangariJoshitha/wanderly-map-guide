@@ -17,7 +17,7 @@ export const CITIES: City[] = [
     languages: ["Marathi", "Hindi", "English"],
     famousFor: ["Bollywood", "Gateway of India", "Marine Drive"],
     population: "20.4 million",
-    currency: "Indian Rupee",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -36,7 +36,7 @@ export const CITIES: City[] = [
     languages: ["Telugu", "Urdu", "Hindi", "English"],
     famousFor: ["Biryani", "Charminar", "Golconda Fort"],
     population: "10.5 million",
-    currency: "Indian Rupee",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -55,6 +55,7 @@ export const CITIES: City[] = [
     languages: ["Kannada", "English", "Tamil", "Telugu"],
     famousFor: ["IT Industry", "Gardens", "Microbreweries"],
     population: "12.3 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -73,6 +74,7 @@ export const CITIES: City[] = [
     languages: ["Bengali", "Hindi", "English"],
     famousFor: ["Durga Puja", "Howrah Bridge", "Rasgulla"],
     population: "14.8 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -91,6 +93,7 @@ export const CITIES: City[] = [
     languages: ["Hindi", "Rajasthani", "English"],
     famousFor: ["Amber Fort", "Hawa Mahal", "Handicrafts"],
     population: "3.1 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free (monuments have separate fees)"
   },
   {
@@ -109,6 +112,7 @@ export const CITIES: City[] = [
     languages: ["Marathi", "Hindi", "English"],
     famousFor: ["Shaniwar Wada", "Aga Khan Palace"],
     population: "3.5 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -127,6 +131,7 @@ export const CITIES: City[] = [
     languages: ["Tamil", "English"],
     famousFor: ["Marina Beach", "Kapaleeshwarar Temple", "Carnatic Music"],
     population: "10.9 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -145,6 +150,7 @@ export const CITIES: City[] = [
     languages: ["Telugu", "English"],
     famousFor: ["Ramakrishna Beach", "Kailasagiri Hill", "INS Kurusura Submarine Museum"],
     population: "2.5 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -163,6 +169,7 @@ export const CITIES: City[] = [
     languages: ["Hindi", "Bhojpuri"],
     famousFor: ["Ghats", "Ganga Aarti", "Silk Sarees"],
     population: "1.2 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free (some ghats have viewing fees)"
   },
   {
@@ -181,6 +188,7 @@ export const CITIES: City[] = [
     languages: ["Hindi", "English"],
     famousFor: ["Taj Mahal", "Agra Fort", "Fatehpur Sikri"],
     population: "1.5 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free (monuments have separate fees)"
   },
   {
@@ -199,6 +207,7 @@ export const CITIES: City[] = [
     languages: ["Telugu", "English"],
     famousFor: ["Kanaka Durga Temple", "Prakasam Barrage"],
     population: "1.8 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -217,6 +226,7 @@ export const CITIES: City[] = [
     languages: ["Gujarati", "English"],
     famousFor: ["Dutch Gardens", "Surat Castle", "Dumas Beach"],
     population: "2.2 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -235,6 +245,7 @@ export const CITIES: City[] = [
     languages: ["Hindi", "English"],
     famousFor: ["Bara Imambara", "Chota Imambara", "Tunday Kebabs"],
     population: "1.7 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -253,6 +264,7 @@ export const CITIES: City[] = [
     languages: ["Hindi", "Punjabi", "Urdu", "English"],
     famousFor: ["Red Fort", "India Gate", "Street Food"],
     population: "29.6 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free (monuments have separate fees)"
   },
   {
@@ -271,6 +283,7 @@ export const CITIES: City[] = [
     languages: ["Hindi", "English"],
     famousFor: ["Triveni Sangam", "Allahabad Fort"],
     population: "1.3 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -289,6 +302,7 @@ export const CITIES: City[] = [
     languages: ["Gujarati", "English"],
     famousFor: ["Sabarmati Ashram", "Sidi Saiyyed Mosque", "Stepwells"],
     population: "2.7 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -307,6 +321,7 @@ export const CITIES: City[] = [
     languages: ["Urdu", "English"],
     famousFor: ["Dal Lake", "Mughal Gardens", "Shankaracharya Temple"],
     population: "1.1 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -325,6 +340,7 @@ export const CITIES: City[] = [
     languages: ["Punjabi", "English"],
     famousFor: ["Golden Temple", "Jallianwala Bagh", "Wagah Border"],
     population: "1.8 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -343,6 +359,7 @@ export const CITIES: City[] = [
     languages: ["Bengali", "English"],
     famousFor: ["Dassam Falls", "Hundru Falls", "Tagore Hill"],
     population: "1.5 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -361,6 +378,7 @@ export const CITIES: City[] = [
     languages: ["Tamil", "English"],
     famousFor: ["Marudamalai Temple", "Siruvani Falls", "VOC Park"],
     population: "1.7 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -379,6 +397,7 @@ export const CITIES: City[] = [
     languages: ["Tamil", "English"],
     famousFor: ["Gandhi Memorial Museum", "Thirumalai Nayakkar Palace"],
     population: "1.2 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -397,6 +416,7 @@ export const CITIES: City[] = [
     languages: ["Hindi", "English"],
     famousFor: ["Kishore Sagar Lake", "Jagmandir Palace", "Chambal Gardens"],
     population: "1.2 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -415,6 +435,7 @@ export const CITIES: City[] = [
     languages: ["Telugu", "English"],
     famousFor: ["Warangal Fort", "Thousand Pillar Temple", "Ramappa Temple"],
     population: "1.4 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   },
   {
@@ -433,6 +454,7 @@ export const CITIES: City[] = [
     languages: ["Telugu", "English"],
     famousFor: ["Chandragiri Fort", "ISKCON Temple", "Silathoranam Geological Formations"],
     population: "1.6 million",
+    currency: "Indian Rupee (INR)",
     entryFee: "Free"
   }
 ];
