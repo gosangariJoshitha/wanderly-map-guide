@@ -1,7 +1,15 @@
+
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+
+// Define a user type
+type User = {
+  username: string;
+  email: string;
+};
 
 type AuthContextType = {
   isAuthenticated: boolean;
+  currentUser: User | null; // Add the currentUser property
   login: (email: string, password: string, remember?: boolean) => Promise<void>;
   logout: () => void;
 };
@@ -10,6 +18,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
   
   useEffect(() => {
     // Check if user is logged in from localStorage
@@ -18,6 +27,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     
     if (authEmail && authToken) {
       setIsAuthenticated(true);
+      // Set a mock user based on the stored email
+      setCurrentUser({
+        username: authEmail.split('@')[0],
+        email: authEmail
+      });
     }
   }, []);
   
@@ -27,6 +41,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
         setIsAuthenticated(true);
+        
+        // Create a mock user object
+        const user = {
+          username: email.split('@')[0],
+          email: email
+        };
+        
+        setCurrentUser(user);
         
         // Store auth state
         localStorage.setItem('authToken', 'mock-jwt-token');
@@ -41,12 +63,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   
   const logout = () => {
     setIsAuthenticated(false);
+    setCurrentUser(null);
     localStorage.removeItem('authToken');
     // We can keep the email if the user chose "remember me"
   };
   
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, currentUser, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+import { type EmblaCarouselType } from "embla-carousel";
 
 interface AttractionGalleryProps {
   images: string[];
@@ -31,7 +32,7 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
     <div className={cn("space-y-4", className)}>
       <Carousel
         className="w-full"
-        onSelect={(api) => handleIndexChange(api.selectedScrollSnap())}
+        onSelect={(api: EmblaCarouselType) => handleIndexChange(api.selectedScrollSnap())}
       >
         <CarouselContent>
           {images.map((imageUrl, index) => (
