@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MapPin, Search, Menu, User } from "lucide-react";
+import { MapPin, Search, Menu, User, Home, Map, Building } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import {
   Drawer,
@@ -121,47 +121,56 @@ export function Navbar() {
           </DrawerTrigger>
           <DrawerContent>
             <DrawerHeader>
-              <DrawerTitle>Menu</DrawerTitle>
+              <DrawerTitle className="text-2xl font-bold">CityWander</DrawerTitle>
             </DrawerHeader>
             <div className="p-4 space-y-4">
-              <nav className="flex flex-col space-y-3">
+              {isAuthenticated && (
+                <div className="p-6 bg-gray-50 rounded-lg space-y-4 mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="h-12 w-12 rounded-full bg-travel-teal-100 flex items-center justify-center">
+                      <User className="h-6 w-6 text-travel-teal-600" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-medium">Hello, {currentUser?.username || 'Traveler'}</p>
+                      <p className="text-sm text-gray-500">{currentUser?.email}</p>
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-center" 
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Button>
+                </div>
+              )}
+
+              <nav className="flex flex-col space-y-2">
                 <Link 
                   to="/" 
-                  className="text-sm font-medium p-2 hover:bg-accent rounded-md flex items-center"
+                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-3"
                 >
+                  <Home className="h-5 w-5" />
                   Home
                 </Link>
                 <Link 
                   to="/cities" 
-                  className="text-sm font-medium p-2 hover:bg-accent rounded-md flex items-center"
+                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-3"
                 >
-                  Cities
+                  <Map className="h-5 w-5" />
+                  Explore Cities
                 </Link>
                 <Link 
                   to="/travel-guide" 
-                  className="text-sm font-medium p-2 hover:bg-accent rounded-md flex items-center"
+                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-3"
                 >
-                  Travel Guide
+                  <Building className="h-5 w-5" />
+                  All Cities Detail
                 </Link>
-                {isAuthenticated ? (
-                  <>
-                    <div className="p-2 flex items-center border rounded-md">
-                      <User className="h-4 w-4 mr-2" />
-                      <div>
-                        <p className="text-sm font-medium">Hello, {currentUser?.username || 'Traveler'}</p>
-                        <p className="text-xs text-gray-500">{currentUser?.email}</p>
-                      </div>
-                    </div>
-                    <Button 
-                      variant="outline" 
-                      className="w-full justify-start" 
-                      onClick={handleLogout}
-                    >
-                      Log out
-                    </Button>
-                  </>
-                ) : (
-                  <>
+                
+                {!isAuthenticated && (
+                  <div className="pt-4 flex flex-col space-y-2">
                     <Link to="/login">
                       <Button variant="outline" className="w-full">
                         Log in
@@ -170,7 +179,7 @@ export function Navbar() {
                     <Link to="/register">
                       <Button className="w-full">Sign up</Button>
                     </Link>
-                  </>
+                  </div>
                 )}
               </nav>
             </div>

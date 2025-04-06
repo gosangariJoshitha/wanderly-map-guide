@@ -32,12 +32,15 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
     <div className={cn("space-y-4", className)}>
       <Carousel
         className="w-full"
+        opts={{
+          loop: true,
+        }}
         onSelect={(api: EmblaCarouselType) => handleIndexChange(api.selectedScrollSnap())}
       >
         <CarouselContent>
           {images.map((imageUrl, index) => (
             <CarouselItem key={index}>
-              <div className="aspect-video w-full overflow-hidden rounded-lg">
+              <div className="aspect-[16/9] w-full overflow-hidden rounded-lg">
                 <img
                   src={imageUrl}
                   alt={`Attraction image ${index + 1}`}
@@ -47,19 +50,19 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="absolute inset-x-0 bottom-0 flex justify-center gap-1 p-2">
+        <div className="absolute inset-x-0 bottom-4 flex justify-center gap-1 p-2">
           {images.map((_, index) => (
             <button
               key={index}
-              className={`h-1.5 rounded-full transition-all ${
-                currentIndex === index ? "w-6 bg-white" : "w-1.5 bg-white/50"
+              className={`h-2 rounded-full transition-all ${
+                currentIndex === index ? "w-8 bg-white" : "w-2 bg-white/50"
               }`}
               onClick={() => setCurrentIndex(index)}
             />
           ))}
         </div>
-        <CarouselPrevious className="left-2" />
-        <CarouselNext className="right-2" />
+        <CarouselPrevious className="left-4" />
+        <CarouselNext className="right-4" />
       </Carousel>
     </div>
   );
