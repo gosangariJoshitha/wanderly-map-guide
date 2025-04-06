@@ -631,4 +631,82 @@ export const mumbaiAttractions: Attraction[] = [
     imageUrl: "https://images.unsplash.com/photo-1589462146720-44a04004338e?q=80&w=800&auto=format&fit=crop",
     galleryImages: [
       "https://images.unsplash.com/photo-1589462146720-44a04004338e?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.
+      "https://images.unsplash.com/photo-1566130985099-30039fd9b341?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1562979314-bee7453e911c?q=80&w=800&auto=format&fit=crop"
+    ],
+    category: "temple",
+    cityId: "mumbai",
+    location: {
+      address: "Hare Krishna Land, Juhu, Mumbai, Maharashtra 400049",
+      coordinates: {
+        lat: 19.0836,
+        lng: 72.8309
+      }
+    },
+    rating: 4.6,
+    reviews: [
+      {
+        id: "rev1",
+        user: "KrishnaDevotee",
+        username: "Meena Sharma",
+        rating: 5,
+        comment: "Beautiful temple with serene ambiance. The prasadam is delicious and the aarti ceremony is spiritual.",
+        date: "2023-12-12"
+      },
+      {
+        id: "rev2",
+        user: "MumbaiVisitor",
+        username: "Rajiv Kumar",
+        rating: 4,
+        comment: "Well-maintained temple with beautiful architecture. The garden area is peaceful for meditation.",
+        date: "2024-01-05"
+      }
+    ],
+    transportOptions: {
+      car: "Located in Juhu, accessible by taxi or car. Parking available.",
+      bus: [
+        {
+          busNumber: "Route 249",
+          from: "Bandra Station",
+          to: "Juhu",
+          stops: ["Bandra", "Santacruz", "Juhu"],
+          frequency: "Every 20 minutes"
+        }
+      ]
+    },
+    timings: "4:30 AM to 9:00 PM (Open all days)",
+    entryFee: "Free",
+    bestTimeToVisit: "Early morning for peaceful experience, evening for aarti ceremony",
+    popularFor: "Krishna worship, spiritual lectures, prasadam meals",
+    localCuisine: [
+      {
+        name: "Govinda's Restaurant",
+        description: "Pure vegetarian restaurant inside temple premises serving sattvic food",
+        price: "₹300-500 per person"
+      },
+      {
+        name: "Juhu Beach Food Stalls",
+        description: "Famous for Mumbai street food including pav bhaji and bhel puri",
+        price: "₹100-200 per item"
+      }
+    ],
+    nearbyHotels: [
+      {
+        id: "h1",
+        name: "JW Marriott Mumbai Juhu",
+        rating: 4.7,
+        price: "₹17,000 per night",
+        imageUrl: "https://images.unsplash.com/photo-1542293787-a9aeafb7add1?q=80&w=800&auto=format&fit=crop",
+        distance: "1 km"
+      },
+      {
+        id: "h2",
+        name: "Sun-n-Sand Hotel",
+        rating: 4.3,
+        price: "₹8,000 per night",
+        imageUrl: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?q=80&w=800&auto=format&fit=crop",
+        distance: "0.7 km"
+      }
+    ]
+  }
+];

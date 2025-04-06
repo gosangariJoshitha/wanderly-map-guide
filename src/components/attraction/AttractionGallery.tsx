@@ -31,7 +31,7 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
     <div className={cn("space-y-4", className)}>
       <Carousel
         className="w-full"
-        onSelect={handleIndexChange}
+        onSelect={(api) => handleIndexChange(api.selectedScrollSnap())}
       >
         <CarouselContent>
           {images.map((imageUrl, index) => (

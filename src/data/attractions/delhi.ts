@@ -1,3 +1,4 @@
+
 import { Attraction } from "@/types";
 
 export const delhiAttractions: Attraction[] = [
@@ -613,4 +614,76 @@ export const delhiAttractions: Attraction[] = [
     category: "temple",
     cityId: "delhi",
     location: {
-      address:
+      address: "Mandir Marg, Connaught Place, New Delhi, Delhi 110001",
+      coordinates: {
+        lat: 28.6342,
+        lng: 77.2028
+      }
+    },
+    rating: 4.5,
+    reviews: [
+      {
+        id: "r1",
+        user: "VishwaBhakt",
+        username: "Vishal Mehta",
+        rating: 5,
+        comment: "Beautiful temple with intricate carvings. Very peaceful and well-maintained.",
+        date: "2023-10-15"
+      },
+      {
+        id: "r2",
+        user: "DelhiTempleGoer",
+        username: "Sunita Roy",
+        rating: 4,
+        comment: "One of Delhi's most significant temples. The architecture is amazing.",
+        date: "2024-01-22"
+      }
+    ],
+    transportOptions: {
+      car: "Located in central Delhi, easily accessible by taxi or car. Parking available.",
+      bus: [
+        {
+          busNumber: "Route 522",
+          from: "Connaught Place",
+          to: "Birla Mandir",
+          stops: ["CP", "Gole Market", "Mandir Marg"],
+          frequency: "Every 20 minutes"
+        }
+      ]
+    },
+    timings: "6:00 AM to 10:00 PM (Open all days)",
+    entryFee: "Free",
+    bestTimeToVisit: "Early morning or evening for peaceful experience",
+    popularFor: "Hindu architecture, spiritual significance, marble structure",
+    localCuisine: [
+      {
+        name: "Haldiram's CP",
+        description: "Popular Indian fast food and sweets chain",
+        price: "₹300-500 per person"
+      },
+      {
+        name: "Bengali Market Sweets",
+        description: "Traditional North Indian sweets and snacks",
+        price: "₹200-350 per person"
+      }
+    ],
+    nearbyHotels: [
+      {
+        id: "h1",
+        name: "The Claridges",
+        rating: 4.6,
+        price: "₹13,000 per night",
+        imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800&auto=format&fit=crop",
+        distance: "1.5 km"
+      },
+      {
+        id: "h2",
+        name: "The Lalit",
+        rating: 4.5,
+        price: "₹11,000 per night",
+        imageUrl: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=800&auto=format&fit=crop",
+        distance: "2 km"
+      }
+    ]
+  }
+];
