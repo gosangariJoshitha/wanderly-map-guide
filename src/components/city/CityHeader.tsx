@@ -1,6 +1,6 @@
 
 import { City } from "@/types";
-import { Share2 } from "lucide-react";
+import { Share2, MapPin } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 
 interface CityHeaderProps {
@@ -58,6 +58,7 @@ export function CityHeader({ city }: CityHeaderProps) {
             <div className="text-travel-teal-400 text-sm font-medium mb-1">{city.region} India</div>
             <h1 className="font-poppins text-3xl md:text-4xl lg:text-5xl font-bold mb-2">{city.name}</h1>
             <div className="flex items-center gap-2 text-sm text-gray-200">
+              <MapPin className="h-4 w-4 text-travel-teal-400" />
               <span>{city.state}</span>
               <span className="w-1.5 h-1.5 rounded-full bg-travel-teal-400"></span>
               <span>{city.attractionsCount} Attractions</span>

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AttractionHeader } from "@/components/attraction/AttractionHeader";
+import { AttractionGallery } from "@/components/attraction/AttractionGallery";
 import { NearbyHotels } from "@/components/attraction/NearbyHotels";
 import { TransportOptions } from "@/components/attraction/TransportOptions";
 import { ReviewSection } from "@/components/attraction/ReviewSection";
@@ -12,6 +13,7 @@ import { fetchAttractionById } from "@/services/attractionService";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { MapPin, Clock, Calendar, Utensils, Tag, Ticket } from "lucide-react";
 
 const AttractionPage = () => {
   const { attractionId } = useParams<{ attractionId: string }>();
@@ -92,6 +94,12 @@ const AttractionPage = () => {
     );
   }
 
+  // Mock gallery images (in a real app, these would come from the backend)
+  const galleryImages = [
+    attraction.imageUrl,
+    ...(attraction.galleryImages || []),
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -99,7 +107,12 @@ const AttractionPage = () => {
       <main className="flex-grow">
         <AttractionHeader attraction={attraction} />
         
-        <div className="container py-8">
+        <div className="container py-6">
+          {/* Image Gallery */}
+          <div className="mb-8">
+            <AttractionGallery images={galleryImages} />
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
@@ -109,8 +122,75 @@ const AttractionPage = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-800">{attraction.description}</p>
+                  
+                  <div className="flex flex-wrap gap-4 mt-6">
+                    {attraction.entryFee && (
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <Ticket className="h-5 w-5 text-travel-teal-500" />
+                        <div>
+                          <span className="block font-medium">Entry Fee</span>
+                          <span>{attraction.entryFee}</span>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {attraction.timings && (
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <Clock className="h-5 w-5 text-travel-teal-500" />
+                        <div>
+                          <span className="block font-medium">Timings</span>
+                          <span>{attraction.timings}</span>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {attraction.bestTimeToVisit && (
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <Calendar className="h-5 w-5 text-travel-teal-500" />
+                        <div>
+                          <span className="block font-medium">Best Time to Visit</span>
+                          <span>{attraction.bestTimeToVisit}</span>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {attraction.popularFor && (
+                      <div className="flex items-center gap-2 text-gray-700">
+                        <Tag className="h-5 w-5 text-travel-teal-500" />
+                        <div>
+                          <span className="block font-medium">Popular For</span>
+                          <span>{attraction.popularFor}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
+              
+              {/* Local Cuisine Section */}
+              {attraction.localCuisine && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Local Cuisine</CardTitle>
+                    <CardDescription>
+                      Famous food options near {attraction.name}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {attraction.localCuisine.map((cuisine, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <Utensils className="h-5 w-5 text-travel-teal-500 mt-1" />
+                          <div>
+                            <h4 className="font-medium">{cuisine.name}</h4>
+                            <p className="text-sm text-gray-600">{cuisine.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
             
               <Card>
                 <CardHeader>
@@ -150,10 +230,7 @@ const AttractionPage = () => {
                   <div className="aspect-square bg-gray-200 rounded-md overflow-hidden">
                     {/* Placeholder for a map - would use Google Maps in real app */}
                     <div className="h-full w-full flex items-center justify-center bg-travel-blue-100 text-travel-blue-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
+                      <MapPin className="h-12 w-12" />
                     </div>
                   </div>
                 </CardContent>

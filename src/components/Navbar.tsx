@@ -3,19 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MapPin, Search, Menu, X, BookOpen } from "lucide-react";
+import { MapPin, Search, Menu, X, User } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const { isAuthenticated, logout } = useAuth();
@@ -85,79 +83,71 @@ export function Navbar() {
           </div>
         </nav>
 
-        {/* Mobile Navigation */}
-        <button 
-          className="md:hidden" 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden p-4 bg-background border-b space-y-4">
-          <form onSubmit={handleSearch} className="relative mb-4">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search cities or attractions..."
-              className="w-full pl-8 pr-4"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </form>
-          <nav className="flex flex-col space-y-3">
-            <Link 
-              to="/" 
-              className="text-sm font-medium p-2 hover:bg-accent rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/cities" 
-              className="text-sm font-medium p-2 hover:bg-accent rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Cities
-            </Link>
-            <Link 
-              to="/travel-guide" 
-              className="text-sm font-medium p-2 hover:bg-accent rounded-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Travel Guide
-            </Link>
-            <div className="flex flex-col gap-2 pt-2">
-              {isAuthenticated ? (
-                <Button variant="outline" className="w-full" onClick={() => {
-                  handleLogout();
-                  setIsMenuOpen(false);
-                }}>
-                  Log out
-                </Button>
-              ) : (
-                <>
-                  <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                    <Button variant="outline" className="w-full">
-                      Log in
+        {/* Mobile Menu Button / Drawer Trigger */}
+        <Drawer>
+          <DrawerTrigger asChild>
+            <Button variant="ghost" size="icon" className="md:hidden">
+              <Menu className="h-6 w-6" />
+            </Button>
+          </DrawerTrigger>
+          <DrawerContent>
+            <DrawerHeader>
+              <DrawerTitle>Menu</DrawerTitle>
+            </DrawerHeader>
+            <div className="p-4 space-y-4">
+              <nav className="flex flex-col space-y-3">
+                <Link 
+                  to="/" 
+                  className="text-sm font-medium p-2 hover:bg-accent rounded-md flex items-center"
+                >
+                  Home
+                </Link>
+                <Link 
+                  to="/cities" 
+                  className="text-sm font-medium p-2 hover:bg-accent rounded-md flex items-center"
+                >
+                  Cities
+                </Link>
+                <Link 
+                  to="/travel-guide" 
+                  className="text-sm font-medium p-2 hover:bg-accent rounded-md flex items-center"
+                >
+                  Travel Guide
+                </Link>
+                {isAuthenticated ? (
+                  <>
+                    <Link 
+                      to="/profile" 
+                      className="text-sm font-medium p-2 hover:bg-accent rounded-md flex items-center"
+                    >
+                      <User className="h-4 w-4 mr-2" />
+                      Profile
+                    </Link>
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-start" 
+                      onClick={handleLogout}
+                    >
+                      Log out
                     </Button>
-                  </Link>
-                  <Link to="/register" onClick={() => setIsMenuOpen(false)}>
-                    <Button className="w-full">Sign up</Button>
-                  </Link>
-                </>
-              )}
+                  </>
+                ) : (
+                  <>
+                    <Link to="/login">
+                      <Button variant="outline" className="w-full">
+                        Log in
+                      </Button>
+                    </Link>
+                    <Link to="/register">
+                      <Button className="w-full">Sign up</Button>
+                    </Link>
+                  </>
+                )}
+              </nav>
             </div>
-          </nav>
-        </div>
-      )}
+          </DrawerContent>
+        </Drawer>
+      </div>
     </header>
   );
 }

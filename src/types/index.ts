@@ -1,72 +1,68 @@
-
 export interface City {
   id: string;
   name: string;
   state: string;
-  description: string;
+  region: string;
   imageUrl: string;
-  attractionsCount: number;
-  coordinates: {
-    lat: number;
-    lng: number;
-  };
-  region: "North" | "South" | "East" | "West";
+  description: string;
   bestTimeToVisit: string;
   languages: string[];
-  famousFor: string[];
+  currency: string;
+  attractionsCount: number;
   population: string;
-  entryFee?: string;
-}
-
-export interface Attraction {
-  id: string;
-  name: string;
-  cityId: string;
-  description: string;
-  imageUrl: string;
-  category: "tourist" | "temple" | "other";
-  rating: number;
-  reviews: Review[];
-  location: {
-    address: string;
-    coordinates: {
-      lat: number;
-      lng: number;
-    };
-  };
-  nearbyHotels?: NearbyHotel[];
-  transportOptions: {
-    car?: string;
-    bus?: BusRoute[];
-  };
-  entryFee?: string;
-  timings?: string;
-  bestTimeToVisit?: string;
+  famousFor?: string[];
 }
 
 export interface Review {
   id: string;
-  userId: string;
-  username: string;
+  user: string;
   rating: number;
   comment: string;
   date: string;
 }
 
-export interface NearbyHotel {
-  id: string;
-  name: string;
-  imageUrl: string;
-  rating: number;
-  price: string;
-  distance: string;
-  bookingLink: string;
+export interface TransportOption {
+  type: string;
+  details: string;
 }
 
-export interface BusRoute {
-  busNumber: string;
-  from: string;
-  to: string;
-  stops: string[];
-  frequency: string;
+export interface Hotel {
+  id: string;
+  name: string;
+  rating: number;
+  price: string;
+  imageUrl: string;
+}
+
+// Add the following types if they don't exist already
+export interface Cuisine {
+  name: string;
+  description: string;
+  price?: string;
+}
+
+// Update Attraction type
+export interface Attraction {
+  id: string;
+  name: string;
+  description: string;
+  imageUrl: string;
+  galleryImages?: string[];
+  category: "tourist" | "temple" | "other";
+  location: {
+    address: string;
+    coordinates?: {
+      lat: number;
+      lng: number;
+    };
+  };
+  rating: number;
+  reviews: Review[];
+  transportOptions: TransportOption[];
+  timings?: string;
+  entryFee?: string;
+  bestTimeToVisit?: string;
+  popularFor?: string;
+  localCuisine?: Cuisine[];
+  nearbyHotels: Hotel[];
 }

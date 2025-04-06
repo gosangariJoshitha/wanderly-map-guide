@@ -1,11 +1,51 @@
 
 import { Attraction } from "@/types";
+import { useNavigate } from "react-router-dom";
+import { Share2, Info } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
 
 interface AttractionHeaderProps {
   attraction: Attraction;
 }
 
 export function AttractionHeader({ attraction }: AttractionHeaderProps) {
+  const navigate = useNavigate();
+
+  const handleShare = async () => {
+    const shareData = {
+      title: `${attraction.name} - CityWander`,
+      text: `Check out ${attraction.name} on CityWander!`,
+      url: window.location.href
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        toast({
+          title: "Shared successfully!"
+        });
+      } else {
+        // Fallback for browsers that don't support the Web Share API
+        await navigator.clipboard.writeText(window.location.href);
+        toast({
+          title: "Link copied to clipboard!",
+          description: "You can now share it with others."
+        });
+      }
+    } catch (error) {
+      console.error("Error sharing:", error);
+      toast({
+        title: "Sharing failed",
+        description: "Could not share this page.",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handleTravelInfo = () => {
+    navigate("/travel-guide");
+  };
+
   return (
     <div className="relative h-72 sm:h-80 lg:h-96 overflow-hidden">
       {/* Attraction image */}
@@ -46,18 +86,20 @@ export function AttractionHeader({ attraction }: AttractionHeaderProps) {
           </div>
           
           <div className="flex gap-2">
-            <div className="bg-travel-blue-800/70 backdrop-blur-sm px-4 py-2 rounded-md flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-travel-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+            <button 
+              onClick={handleTravelInfo}
+              className="bg-travel-blue-800/70 backdrop-blur-sm px-4 py-2 rounded-md flex items-center gap-2 hover:bg-travel-blue-700/70 transition-colors"
+            >
+              <Info className="h-5 w-5 text-travel-teal-400" />
               <span className="text-sm font-medium">Travel Info</span>
-            </div>
-            <div className="bg-travel-blue-800/70 backdrop-blur-sm px-4 py-2 rounded-md flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-travel-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-              </svg>
+            </button>
+            <button 
+              onClick={handleShare}
+              className="bg-travel-blue-800/70 backdrop-blur-sm px-4 py-2 rounded-md flex items-center gap-2 hover:bg-travel-blue-700/70 transition-colors"
+            >
+              <Share2 className="h-5 w-5 text-travel-teal-400" />
               <span className="text-sm font-medium">Share</span>
-            </div>
+            </button>
           </div>
         </div>
       </div>

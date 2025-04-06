@@ -1,25 +1,32 @@
 
+import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CITIES } from "@/services/dataService";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronRight, MapPin, Calendar, Globe } from "lucide-react";
+import { ChevronRight, MapPin, Calendar, Globe, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 const TravelGuide = () => {
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   
   const regions = ["North", "South", "East", "West"];
   
-  const filteredCities = selectedRegion 
-    ? CITIES.filter(city => city.region === selectedRegion)
-    : CITIES;
+  const filteredCities = CITIES.filter(city => {
+    const matchesRegion = selectedRegion ? city.region === selectedRegion : true;
+    const matchesSearch = searchQuery 
+      ? city.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        city.state.toLowerCase().includes(searchQuery.toLowerCase())
+      : true;
+    return matchesRegion && matchesSearch;
+  });
     
   const regionCities = regions.map(region => ({
     region,
-    cities: CITIES.filter(city => city.region === region)
+    cities: filteredCities.filter(city => city.region === region)
   }));
 
   return (
@@ -35,6 +42,18 @@ const TravelGuide = () => {
             <p className="text-travel-blue-100 max-w-2xl mx-auto mb-8">
               Everything you need to know about traveling to India's most vibrant and historic cities.
             </p>
+            
+            {/* Search bar */}
+            <div className="max-w-md mx-auto relative">
+              <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <Input
+                type="search"
+                placeholder="Search for cities or states..."
+                className="pl-10 pr-4 py-6 bg-white/10 backdrop-blur-sm border-white/20 text-white placeholder:text-white/70"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
           </div>
         </div>
         
@@ -60,7 +79,10 @@ const TravelGuide = () => {
           </div>
           
           <div className="grid grid-cols-1 gap-8">
-            {(selectedRegion ? regionCities.filter(r => r.region === selectedRegion) : regionCities).map(({region, cities}) => (
+            {(selectedRegion 
+              ? regionCities.filter(r => r.region === selectedRegion) 
+              : regionCities.filter(r => r.cities.length > 0)
+            ).map(({region, cities}) => (
               <div key={region} className="border rounded-lg overflow-hidden shadow-sm">
                 <div className="bg-travel-blue-800 text-white px-6 py-3">
                   <h2 className="text-xl font-semibold">{region} India</h2>
