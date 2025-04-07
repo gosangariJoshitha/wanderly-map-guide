@@ -1,3 +1,4 @@
+
 import { Attraction } from "@/types";
 
 export const kolkataAttractions: Attraction[] = [
@@ -633,4 +634,78 @@ export const kolkataAttractions: Attraction[] = [
   {
     id: "iskon-temple",
     name: "ISKCON Temple",
-    description: "The ISKCON Temple in Kolkata is dedicated to Lord Krishna and is one of the largest Krishna temples in the world. Known for its beautiful architecture and
+    description: "The ISKCON Temple in Kolkata is dedicated to Lord Krishna and is one of the largest Krishna temples in the world. Known for its beautiful architecture and spiritual ambiance.",
+    imageUrl: "https://images.unsplash.com/photo-1615887480363-e6b27cc12de2?q=80&w=1000&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1615887480363-e6b27cc12de2?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1618623266812-a0cc5992df13?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1592549585866-486f41343aaf?q=80&w=1000&auto=format&fit=crop"
+    ],
+    category: "temple",
+    cityId: "kolkata",
+    location: {
+      address: "3C Albert Road, Minto Park, Kolkata",
+      coordinates: {
+        lat: 22.5266,
+        lng: 88.3530
+      }
+    },
+    rating: 4.7,
+    reviews: [
+      {
+        id: "it1",
+        user: "user888",
+        username: "Sanjay M.",
+        rating: 5,
+        comment: "Beautifully maintained temple with excellent prasadam. The Sunday feast program is a must-attend for visitors.",
+        date: "2023-12-15"
+      },
+      {
+        id: "it2",
+        user: "user999",
+        username: "Anita R.",
+        rating: 4,
+        comment: "Spiritual and peaceful environment. The evening aarti is mesmerizing with beautiful kirtans.",
+        date: "2023-11-20"
+      }
+    ],
+    transportOptions: {
+      car: "Located in south-central Kolkata, easily accessible by car with parking available.",
+      bus: [
+        {
+          busNumber: "AB12",
+          from: "Esplanade",
+          to: "ISKCON Temple",
+          stops: ["Park Street", "Loudon Street", "Albert Road"],
+          frequency: "Every 20 minutes"
+        }
+      ]
+    },
+    timings: "4:30 AM - 12:30 PM, 4:00 PM - 8:30 PM",
+    entryFee: "Free",
+    bestTimeToVisit: "Evenings for aarti or Sundays for the feast program",
+    popularFor: "Krishna consciousness, architecture, prasadam distribution",
+    localCuisine: [
+      {
+        name: "ISKCON Prasadam",
+        description: "Sanctified vegetarian food with various dishes prepared according to Vedic principles.",
+        price: "Varies based on program"
+      },
+      {
+        name: "Sweets Offering",
+        description: "Various milk-based sweets offered to the deities and later distributed to devotees.",
+        price: "Available for purchase at temple shop"
+      }
+    ],
+    nearbyHotels: [
+      {
+        id: "hotel-hindusthan",
+        name: "Hotel Hindusthan International",
+        rating: 4.3,
+        price: "₹6,000 per night",
+        imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1000&auto=format&fit=crop",
+        distance: "1.5 km"
+      }
+    ]
+  }
+];
