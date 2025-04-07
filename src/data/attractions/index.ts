@@ -5,6 +5,7 @@ import { mumbaiAttractions } from "./mumbai";
 import { delhiAttractions } from "./delhi";
 import { bengaluruAttractions } from "./bengaluru";
 import { kolkataAttractions } from "./kolkata";
+import { chennaiAttractions } from "./chennai";
 
 // Combine all attractions from all cities
 const ATTRACTIONS: Record<string, Attraction[]> = {
@@ -12,7 +13,8 @@ const ATTRACTIONS: Record<string, Attraction[]> = {
   "mumbai": mumbaiAttractions,
   "delhi": delhiAttractions,
   "bengaluru": bengaluruAttractions,
-  "kolkata": kolkataAttractions
+  "kolkata": kolkataAttractions,
+  "chennai": chennaiAttractions
 };
 
 export default ATTRACTIONS;

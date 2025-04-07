@@ -49,7 +49,7 @@ const Index = () => {
               <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3 text-travel-blue-800">
                 Featured Cities
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <p className="text-travel-blue-600 max-w-2xl mx-auto">
                 From historic landmarks to modern metropolises, explore our handpicked selection of must-visit cities across India.
               </p>
             </div>
