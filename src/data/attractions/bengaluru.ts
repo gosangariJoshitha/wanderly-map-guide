@@ -610,4 +610,336 @@ export const bengaluruAttractions: Attraction[] = [
       "https://images.unsplash.com/photo-1588686767783-65fe91155868?q=80&w=800&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1605169786162-fa3df8c3c163?q=80&w=800&auto=format&fit=crop"
     ],
-    category: "tem
+    category: "temple",
+    cityId: "bengaluru",
+    location: {
+      address: "Gavipuram Extension, Kempegowda Nagar, Bengaluru, Karnataka 560019",
+      coordinates: {
+        lat: 12.9411,
+        lng: 77.5656
+      }
+    },
+    rating: 4.4,
+    reviews: [
+      {
+        id: "r1",
+        user: "HistoryEnthusiast",
+        username: "Radha Krishna",
+        rating: 5,
+        comment: "Amazing ancient cave temple with astronomical significance. The stone discs and the way sunlight enters the cave is fascinating.",
+        date: "2023-10-20"
+      },
+      {
+        id: "r2",
+        user: "HeritageExplorer",
+        username: "Sudhir Menon",
+        rating: 4,
+        comment: "Unique temple with historical importance. Try to visit during Makar Sankranti to witness the sunlight phenomenon.",
+        date: "2023-12-15"
+      }
+    ],
+    transportOptions: {
+      car: "Accessible by car with limited street parking.",
+      bus: [
+        {
+          busNumber: "Route 42",
+          from: "Majestic",
+          to: "Gavipuram",
+          stops: ["K.R. Market", "Chamarajpet", "Gavipuram"],
+          frequency: "Every 25 minutes"
+        }
+      ]
+    },
+    timings: "6:00 AM to 12:30 PM, 5:30 PM to 8:30 PM (Open all days)",
+    entryFee: "Free",
+    bestTimeToVisit: "During Makar Sankranti (mid-January) to see the sunlight phenomenon",
+    popularFor: "Cave architecture, astronomical alignment, ancient sculptures, religious ceremonies",
+    localCuisine: [
+      {
+        name: "Donne Biryani House",
+        description: "Popular for traditional Karnataka-style biryani served in palm leaf",
+        price: "₹200-350 for two"
+      },
+      {
+        name: "Sri Udupi Park",
+        description: "Vegetarian restaurant serving South Indian dishes",
+        price: "₹150-300 for two"
+      }
+    ],
+    nearbyHotels: [
+      {
+        id: "h1",
+        name: "Pai Viceroy",
+        rating: 3.9,
+        price: "₹3,500 per night",
+        imageUrl: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=800&auto=format&fit=crop",
+        distance: "4 km"
+      },
+      {
+        id: "h2",
+        name: "The Capitol Hotel",
+        rating: 4.1,
+        price: "₹4,200 per night",
+        imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800&auto=format&fit=crop",
+        distance: "5 km"
+      }
+    ]
+  },
+  
+  // OTHER ATTRACTIONS CATEGORY
+  {
+    id: "bengaluru-vidhana-soudha",
+    name: "Vidhana Soudha",
+    description: "Vidhana Soudha is the seat of the state legislature of Karnataka. It is an imposing building, constructed in a style sometimes described as 'Neo-Dravidian', and incorporates elements of Indo-Saracenic and Dravidian styles. The building is illuminated on special occasions and is a popular landmark and tourist attraction.",
+    imageUrl: "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566131807516-e8c5aaee0e4a?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=800&auto=format&fit=crop"
+    ],
+    category: "other",
+    cityId: "bengaluru",
+    location: {
+      address: "Dr Ambedkar Veedhi, Bengaluru, Karnataka 560001",
+      coordinates: {
+        lat: 12.9796,
+        lng: 77.5907
+      }
+    },
+    rating: 4.5,
+    reviews: [
+      {
+        id: "r1",
+        user: "ArchitectureFan",
+        username: "Vivek Shankar",
+        rating: 5,
+        comment: "Magnificent building with impressive architecture. Beautiful when illuminated in the evenings.",
+        date: "2023-11-10"
+      },
+      {
+        id: "r2",
+        user: "CityExplorer",
+        username: "Renu Gupta",
+        rating: 4,
+        comment: "Important landmark in Bengaluru. Great for photography from outside, though internal access is restricted.",
+        date: "2024-01-20"
+      }
+    ],
+    transportOptions: {
+      car: "Accessible by car. Street parking available nearby.",
+      bus: [
+        {
+          busNumber: "Route 176",
+          from: "Majestic",
+          to: "Vidhana Soudha",
+          stops: ["K.R. Circle", "Cubbon Park", "High Court"],
+          frequency: "Every 15 minutes"
+        }
+      ]
+    },
+    timings: "Outside view accessible 24/7 (Internal access restricted)",
+    entryFee: "Free (for viewing from outside)",
+    bestTimeToVisit: "Evenings when illuminated, Sundays for fewer crowds",
+    popularFor: "Architecture, photography, historical importance, illumination",
+    localCuisine: [
+      {
+        name: "Indian Coffee House",
+        description: "Historic cafe serving South Indian coffee and snacks",
+        price: "₹150-250 for two"
+      },
+      {
+        name: "The Only Place",
+        description: "Classic restaurant known for steaks and continental cuisine",
+        price: "₹800-1,200 for two"
+      }
+    ],
+    nearbyHotels: [
+      {
+        id: "h1",
+        name: "The Chancery Pavilion",
+        rating: 4.3,
+        price: "₹7,000 per night",
+        imageUrl: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=800&auto=format&fit=crop",
+        distance: "2 km"
+      },
+      {
+        id: "h2",
+        name: "Taj West End",
+        rating: 4.7,
+        price: "₹15,000 per night",
+        imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800&auto=format&fit=crop",
+        distance: "3.5 km"
+      }
+    ]
+  },
+  {
+    id: "bengaluru-ulsoor-lake",
+    name: "Ulsoor Lake",
+    description: "Ulsoor Lake is one of the largest lakes in Bengaluru, spread over an area of 125 acres. Created by Kempe Gowda II, it features multiple islands and is a popular spot for boating and recreation. The lake area includes a walking path, children's park, and is maintained by the Bruhat Bengaluru Mahanagara Palike.",
+    imageUrl: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566131807516-e8c5aaee0e4a?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=800&auto=format&fit=crop"
+    ],
+    category: "other",
+    cityId: "bengaluru",
+    location: {
+      address: "Ulsoor, Bengaluru, Karnataka 560008",
+      coordinates: {
+        lat: 12.9782,
+        lng: 77.6218
+      }
+    },
+    rating: 4.2,
+    reviews: [
+      {
+        id: "r1",
+        user: "MorningWalker",
+        username: "Anjali Mathur",
+        rating: 4,
+        comment: "Beautiful lake for morning walks. The boating facility adds to the experience.",
+        date: "2023-09-30"
+      },
+      {
+        id: "r2",
+        user: "WeekendVisitor",
+        username: "Kiran Reddy",
+        rating: 5,
+        comment: "Serene lake in the heart of the city. Great place to relax and unwind.",
+        date: "2023-12-18"
+      }
+    ],
+    transportOptions: {
+      car: "Easily accessible by car. Parking available nearby.",
+      bus: [
+        {
+          busNumber: "Route 300",
+          from: "MG Road",
+          to: "Ulsoor",
+          stops: ["Trinity Circle", "Ulsoor Lake"],
+          frequency: "Every 20 minutes"
+        }
+      ]
+    },
+    timings: "6:00 AM to 8:00 PM (Open all days)",
+    entryFee: "Free (Boating charges extra)",
+    bestTimeToVisit: "Early mornings or evenings",
+    popularFor: "Boating, walking, picnics, bird watching",
+    localCuisine: [
+      {
+        name: "Burma Burma",
+        description: "Burmese restaurant offering vegetarian cuisine",
+        price: "₹800-1,200 for two"
+      },
+      {
+        name: "Chinita",
+        description: "Mexican restaurant known for burritos and tacos",
+        price: "₹600-900 for two"
+      }
+    ],
+    nearbyHotels: [
+      {
+        id: "h1",
+        name: "The Leela Palace",
+        rating: 4.8,
+        price: "₹18,000 per night",
+        imageUrl: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=800&auto=format&fit=crop",
+        distance: "3 km"
+      },
+      {
+        id: "h2",
+        name: "Taj MG Road",
+        rating: 4.6,
+        price: "₹12,000 per night",
+        imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800&auto=format&fit=crop",
+        distance: "2 km"
+      }
+    ]
+  },
+  {
+    id: "bengaluru-bangalore-aquarium",
+    name: "Bangalore Aquarium",
+    description: "Bangalore Aquarium is the second-largest aquarium in India, located in Cubbon Park. It houses a variety of exotic and ornamental freshwater fish species. The aquarium is split into three floors with different sections showcasing various aquatic species in well-maintained tanks.",
+    imageUrl: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566131807516-e8c5aaee0e4a?q=80&w=800&auto=format&fit=crop"
+    ],
+    category: "other",
+    cityId: "bengaluru",
+    location: {
+      address: "Kasturba Road, Cubbon Park, Bengaluru, Karnataka 560001",
+      coordinates: {
+        lat: 12.9764,
+        lng: 77.5929
+      }
+    },
+    rating: 3.9,
+    reviews: [
+      {
+        id: "r1",
+        user: "FamilyDay",
+        username: "Sameer Joshi",
+        rating: 4,
+        comment: "Good place to take kids. They enjoyed seeing different fish species.",
+        date: "2023-10-25"
+      },
+      {
+        id: "r2",
+        user: "WeekendExplorer",
+        username: "Preeti Singh",
+        rating: 3,
+        comment: "Small but interesting aquarium. Worth a quick visit when you're in Cubbon Park.",
+        date: "2024-01-08"
+      }
+    ],
+    transportOptions: {
+      car: "Accessible by car. Parking available in Cubbon Park.",
+      bus: [
+        {
+          busNumber: "Route 140",
+          from: "Majestic",
+          to: "Cubbon Park",
+          stops: ["K.R. Circle", "Vidhana Soudha", "Cubbon Park"],
+          frequency: "Every 20 minutes"
+        }
+      ]
+    },
+    timings: "10:00 AM to 5:30 PM (Closed on Mondays and Second Tuesdays)",
+    entryFee: "₹40 for adults, ₹20 for children",
+    bestTimeToVisit: "Weekday afternoons for fewer crowds",
+    popularFor: "Freshwater fish species, educational tours, family outings",
+    localCuisine: [
+      {
+        name: "Koshy's",
+        description: "Iconic cafe with colonial atmosphere serving continental and Indian cuisine",
+        price: "₹500-700 for two"
+      },
+      {
+        name: "Cubbon Pavilion",
+        description: "Multi-cuisine restaurant with indoor and outdoor seating",
+        price: "₹1,500-2,000 for two"
+      }
+    ],
+    nearbyHotels: [
+      {
+        id: "h1",
+        name: "The Oberoi",
+        rating: 4.7,
+        price: "₹16,000 per night",
+        imageUrl: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=800&auto=format&fit=crop",
+        distance: "1.5 km"
+      },
+      {
+        id: "h2",
+        name: "ITC Gardenia",
+        rating: 4.6,
+        price: "₹14,000 per night",
+        imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800&auto=format&fit=crop",
+        distance: "3 km"
+      }
+    ]
+  }
+];
