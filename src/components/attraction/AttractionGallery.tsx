@@ -35,7 +35,12 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
         opts={{
           loop: true,
         }}
-        onSelect={(api: EmblaCarouselType) => handleIndexChange(api.selectedScrollSnap())}
+        // Fix: Use the setApi prop instead of onSelect
+        setApi={(api) => {
+          api.on("select", () => {
+            handleIndexChange(api.selectedScrollSnap());
+          });
+        }}
       >
         <CarouselContent>
           {images.map((imageUrl, index) => (
