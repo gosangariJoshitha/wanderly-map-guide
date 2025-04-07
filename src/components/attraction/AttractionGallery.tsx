@@ -30,6 +30,8 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
 
   return (
     <div className={cn("space-y-4", className)}>
+      <h2 className="text-4xl font-bold mb-6">Gallery</h2>
+      
       <Carousel
         className="w-full"
         opts={{
@@ -45,13 +47,18 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
         <CarouselContent>
           {images.map((imageUrl, index) => (
             <CarouselItem key={index}>
-              <div className="aspect-[16/9] w-full overflow-hidden rounded-lg">
+              <div className="aspect-[16/9] w-full overflow-hidden rounded-xl">
                 <img
                   src={imageUrl}
                   alt={`Attraction image ${index + 1}`}
                   className="h-full w-full object-cover"
                 />
               </div>
+              {images[currentIndex].includes("Gateway") && (
+                <div className="absolute bottom-8 left-8 text-white text-3xl font-semibold">
+                  Gateway of India
+                </div>
+              )}
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -59,15 +66,15 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
           {images.map((_, index) => (
             <button
               key={index}
-              className={`h-2 rounded-full transition-all ${
-                currentIndex === index ? "w-8 bg-white" : "w-2 bg-white/50"
+              className={`h-3 rounded-full transition-all ${
+                currentIndex === index ? "w-10 bg-white" : "w-3 bg-white/50"
               }`}
               onClick={() => setCurrentIndex(index)}
             />
           ))}
         </div>
-        <CarouselPrevious className="left-4" />
-        <CarouselNext className="right-4" />
+        <CarouselPrevious className="left-4 h-12 w-12 rounded-full" />
+        <CarouselNext className="right-4 h-12 w-12 rounded-full" />
       </Carousel>
     </div>
   );

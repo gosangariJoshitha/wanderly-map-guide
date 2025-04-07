@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MapPin, Search, Menu, User, Home, Map, Building } from "lucide-react";
+import { MapPin, Search, Menu, User, ArrowLeft, LogOut } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import {
   Drawer,
@@ -141,31 +141,50 @@ export function Navbar() {
                     className="w-full justify-center" 
                     onClick={handleLogout}
                   >
+                    <LogOut className="mr-2 h-4 w-4" />
                     Logout
                   </Button>
                 </div>
               )}
 
-              <nav className="flex flex-col space-y-2">
+              <div className="border-b pb-4 mb-4">
+                <Link to="/" className="flex items-center gap-3 w-full p-3 hover:bg-gray-50 rounded-md">
+                  <ArrowLeft className="h-5 w-5" />
+                  <span className="font-medium">Go Back</span>
+                </Link>
+              </div>
+
+              <nav className="flex flex-col space-y-1">
                 <Link 
                   to="/" 
                   className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-3"
                 >
-                  <Home className="h-5 w-5" />
+                  <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
                   Home
                 </Link>
                 <Link 
                   to="/cities" 
                   className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-3"
                 >
-                  <Map className="h-5 w-5" />
+                  <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 22h20"></path>
+                    <path d="M6.87 2l-4.3 4.3a.61.61 0 00.43 1.05h3v7.65a.6.6 0 001.2 0V7.35h3a.61.61 0 00.43-1.05L6.87 2z"></path>
+                    <path d="M14.87 15l-4.3 4.3a.61.61 0 00.43 1.05h3v-3a.6.6 0 011.2 0v3h3a.61.61 0 00.43-1.05L14.87 15z"></path>
+                  </svg>
                   Explore Cities
                 </Link>
                 <Link 
                   to="/travel-guide" 
                   className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-3"
                 >
-                  <Building className="h-5 w-5" />
+                  <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                  </svg>
                   All Cities Detail
                 </Link>
                 
