@@ -29,7 +29,7 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
   };
 
   return (
-    <div className={cn("space-y-4", className)}>
+    <div className={cn("space-y-6", className)}>
       <h2 className="text-4xl font-bold mb-6">Gallery</h2>
       
       <Carousel
@@ -37,7 +37,6 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
         opts={{
           loop: true,
         }}
-        // Fix: Use the setApi prop instead of onSelect
         setApi={(api) => {
           api.on("select", () => {
             handleIndexChange(api.selectedScrollSnap());
@@ -47,7 +46,7 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
         <CarouselContent>
           {images.map((imageUrl, index) => (
             <CarouselItem key={index}>
-              <div className="aspect-[16/9] w-full overflow-hidden rounded-xl">
+              <div className="aspect-[16/9] w-full lg:h-[600px] overflow-hidden rounded-xl">
                 <img
                   src={imageUrl}
                   alt={`Attraction image ${index + 1}`}
