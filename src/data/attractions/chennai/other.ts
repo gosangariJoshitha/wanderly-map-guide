@@ -17,14 +17,22 @@ export const chennaiOtherAttractions: Attraction[] = [
     category: "other",
     cityId: "chennai",
     rating: 4.5,
-    openingHours: "Open 24 hours (swimming not recommended)",
+    timings: "Open 24 hours (swimming not recommended)",
     entryFee: "Free",
     bestTimeToVisit: "Sunset and evenings",
-    tips: [
-      "Visit in the evening to enjoy the vibrant atmosphere and food stalls",
-      "Check out the Karl Schmidt Memorial at the southern end of the beach",
-      "Combine with a visit to the nearby Ashtalakshmi Temple"
-    ]
+    transportOptions: {
+      car: "Ample parking available along beachfront",
+      bus: [
+        {
+          busNumber: "29C",
+          from: "Adyar",
+          to: "Besant Nagar",
+          stops: ["Adyar Bus Terminal", "Indira Nagar", "Besant Nagar"],
+          frequency: "Every 20 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "cholamandal-artists-village",
@@ -41,14 +49,22 @@ export const chennaiOtherAttractions: Attraction[] = [
     category: "other",
     cityId: "chennai",
     rating: 4.3,
-    openingHours: "9:30 AM - 6:30 PM",
+    timings: "9:30 AM - 6:30 PM",
     entryFee: "₹20",
     bestTimeToVisit: "Weekday mornings",
-    tips: [
-      "Allow at least 2 hours to fully explore the galleries and workshops",
-      "Great place to purchase unique, authentic Indian art as souvenirs",
-      "Check if any cultural performances are scheduled during your visit"
-    ]
+    transportOptions: {
+      car: "Parking available inside premises",
+      bus: [
+        {
+          busNumber: "109",
+          from: "Adyar",
+          to: "ECR",
+          stops: ["Adyar", "Thiruvanmiyur", "Injambakkam"],
+          frequency: "Every 30 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "dakshina-chitra",
@@ -65,14 +81,22 @@ export const chennaiOtherAttractions: Attraction[] = [
     category: "other",
     cityId: "chennai",
     rating: 4.6,
-    openingHours: "10:00 AM - 6:00 PM (Closed on Tuesdays)",
+    timings: "10:00 AM - 6:00 PM (Closed on Tuesdays)",
     entryFee: "₹100 for Indians, ₹350 for foreigners",
     bestTimeToVisit: "Weekdays or during cultural festivals",
-    tips: [
-      "Check their calendar for special workshops and cultural performances",
-      "Plan to spend at least half a day here",
-      "Try hands-on activities like pottery or kolam drawing"
-    ]
+    transportOptions: {
+      car: "Large parking area available",
+      bus: [
+        {
+          busNumber: "109A",
+          from: "Thiruvanmiyur",
+          to: "Muttukadu",
+          stops: ["Thiruvanmiyur", "Neelankarai", "Muttukadu"],
+          frequency: "Every 30 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "guindy-national-park",
@@ -89,14 +113,22 @@ export const chennaiOtherAttractions: Attraction[] = [
     category: "other",
     cityId: "chennai",
     rating: 4.2,
-    openingHours: "9:00 AM - 5:30 PM (Closed on Tuesdays)",
+    timings: "9:00 AM - 5:30 PM (Closed on Tuesdays)",
     entryFee: "₹30 for adults, ₹15 for children",
     bestTimeToVisit: "Early mornings for wildlife viewing",
-    tips: [
-      "Morning visits offer better chances of wildlife sightings",
-      "Wear comfortable shoes and bring insect repellent",
-      "The Children's Park section is great for younger visitors"
-    ]
+    transportOptions: {
+      car: "Parking available at entrance",
+      bus: [
+        {
+          busNumber: "18A",
+          from: "T. Nagar",
+          to: "Guindy",
+          stops: ["T. Nagar", "Saidapet", "Guindy"],
+          frequency: "Every 15 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "birla-planetarium",
@@ -113,13 +145,21 @@ export const chennaiOtherAttractions: Attraction[] = [
     category: "other",
     cityId: "chennai",
     rating: 4.4,
-    openingHours: "10:00 AM - 5:30 PM (Closed on Mondays)",
+    timings: "10:00 AM - 5:30 PM (Closed on Mondays)",
     entryFee: "₹40 for adults, ₹25 for children",
     bestTimeToVisit: "Weekday afternoons",
-    tips: [
-      "Check the show timings in advance and arrive 15 minutes early",
-      "Shows are available in multiple languages (Tamil, English)",
-      "Combine with a visit to the nearby Periyar Science and Technology Centre"
-    ]
+    transportOptions: {
+      car: "Parking available on premises",
+      bus: [
+        {
+          busNumber: "23C",
+          from: "Broadway",
+          to: "Kotturpuram",
+          stops: ["Broadway", "Anna Salai", "Gandhi Mandapam"],
+          frequency: "Every 20 minutes"
+        }
+      ]
+    },
+    reviews: []
   }
 ];

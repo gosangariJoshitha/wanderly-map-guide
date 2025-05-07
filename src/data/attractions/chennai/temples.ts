@@ -17,14 +17,22 @@ export const chennaiTempleAttractions: Attraction[] = [
     category: "temple",
     cityId: "chennai",
     rating: 4.7,
-    openingHours: "5:30 AM - 12:00 PM, 4:00 PM - 8:30 PM",
+    timings: "5:30 AM - 12:00 PM, 4:00 PM - 8:30 PM",
     entryFee: "Free",
     bestTimeToVisit: "Morning or during festival celebrations",
-    tips: [
-      "Remove footwear before entering",
-      "Dress modestly covering shoulders and knees",
-      "Photography is restricted inside the main shrine"
-    ]
+    transportOptions: {
+      car: "Limited parking available nearby, best to use ride-sharing services",
+      bus: [
+        {
+          busNumber: "5B",
+          from: "T. Nagar",
+          to: "Mylapore Temple",
+          stops: ["T. Nagar", "Alwarpet", "Mylapore"],
+          frequency: "Every 15 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "parthasarathy-temple",
@@ -41,14 +49,22 @@ export const chennaiTempleAttractions: Attraction[] = [
     category: "temple",
     cityId: "chennai",
     rating: 4.6,
-    openingHours: "6:00 AM - 12:30 PM, 4:00 PM - 9:00 PM",
+    timings: "6:00 AM - 12:30 PM, 4:00 PM - 9:00 PM",
     entryFee: "Free",
     bestTimeToVisit: "Early morning or evening",
-    tips: [
-      "Visit during the annual Vaikunta Ekadasi festival in December-January",
-      "Observe the intricate carvings on the pillars",
-      "Dress conservatively"
-    ]
+    transportOptions: {
+      car: "Street parking available",
+      bus: [
+        {
+          busNumber: "27D",
+          from: "Broadway",
+          to: "Triplicane",
+          stops: ["Broadway", "Marina Beach", "Triplicane"],
+          frequency: "Every 10 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "marundeeswarar-temple",
@@ -65,14 +81,22 @@ export const chennaiTempleAttractions: Attraction[] = [
     category: "temple",
     cityId: "chennai",
     rating: 4.5,
-    openingHours: "6:00 AM - 12:00 PM, 4:30 PM - 8:30 PM",
+    timings: "6:00 AM - 12:00 PM, 4:30 PM - 8:30 PM",
     entryFee: "Free",
     bestTimeToVisit: "Early mornings or during Maha Shivaratri",
-    tips: [
-      "Take time to explore the detailed stone carvings around the temple",
-      "Visit the sacred tank within the temple complex",
-      "Attend the evening aarti ceremony"
-    ]
+    transportOptions: {
+      car: "Parking available",
+      bus: [
+        {
+          busNumber: "5E",
+          from: "Adyar",
+          to: "Thiruvanmiyur",
+          stops: ["Adyar", "IIT Madras", "Thiruvanmiyur"],
+          frequency: "Every 20 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "vadapalani-murugan-temple",
@@ -89,14 +113,22 @@ export const chennaiTempleAttractions: Attraction[] = [
     category: "temple",
     cityId: "chennai",
     rating: 4.6,
-    openingHours: "5:30 AM - 1:00 PM, 4:00 PM - 9:00 PM",
+    timings: "5:30 AM - 1:00 PM, 4:00 PM - 9:00 PM",
     entryFee: "Free",
     bestTimeToVisit: "During Thai Poosam festival (January-February)",
-    tips: [
-      "The temple gets very crowded during festival days",
-      "Special pujas are conducted on Tuesdays and Fridays",
-      "Photography is restricted inside"
-    ]
+    transportOptions: {
+      car: "Limited parking available",
+      bus: [
+        {
+          busNumber: "11G",
+          from: "T. Nagar",
+          to: "Vadapalani",
+          stops: ["T. Nagar", "Kodambakkam", "Vadapalani"],
+          frequency: "Every 10 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "shirdi-sai-baba-temple",
@@ -113,13 +145,21 @@ export const chennaiTempleAttractions: Attraction[] = [
     category: "temple",
     cityId: "chennai",
     rating: 4.5,
-    openingHours: "6:00 AM - 12:00 PM, 4:00 PM - 9:00 PM",
+    timings: "6:00 AM - 12:00 PM, 4:00 PM - 9:00 PM",
     entryFee: "Free",
     bestTimeToVisit: "Thursday evenings for special aarti",
-    tips: [
-      "Thursdays are considered auspicious and see larger crowds",
-      "Free prasad (consecrated food) is distributed after aarti",
-      "Maintain silence in the meditation hall"
-    ]
+    transportOptions: {
+      car: "Parking available at temple premises",
+      bus: [
+        {
+          busNumber: "23A",
+          from: "T. Nagar",
+          to: "Mylapore",
+          stops: ["T. Nagar", "Alwarpet", "Mylapore"],
+          frequency: "Every 15 minutes"
+        }
+      ]
+    },
+    reviews: []
   }
 ];

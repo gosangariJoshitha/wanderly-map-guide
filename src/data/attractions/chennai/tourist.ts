@@ -17,14 +17,22 @@ export const chennaiTouristAttractions: Attraction[] = [
     category: "tourist",
     cityId: "chennai",
     rating: 4.6,
-    openingHours: "Open 24 hours (swimming prohibited due to strong currents)",
+    timings: "Open 24 hours (swimming prohibited due to strong currents)",
     entryFee: "Free",
     bestTimeToVisit: "Early morning or sunset",
-    tips: [
-      "Visit early morning to avoid crowds and heat",
-      "Don't miss the famous street food, especially sundal (spiced chickpeas)",
-      "Swimming is dangerous and not allowed due to strong undercurrents"
-    ]
+    transportOptions: {
+      car: "Parking available along the beach road",
+      bus: [
+        {
+          busNumber: "27B",
+          from: "Chennai Central",
+          to: "Marina Beach",
+          stops: ["Central Station", "High Court", "Marina Beach"],
+          frequency: "Every 15 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "fort-st-george",
@@ -41,14 +49,22 @@ export const chennaiTouristAttractions: Attraction[] = [
     category: "tourist",
     cityId: "chennai",
     rating: 4.3,
-    openingHours: "9:00 AM - 5:00 PM (Closed on Fridays)",
+    timings: "9:00 AM - 5:00 PM (Closed on Fridays)",
     entryFee: "₹25 for Indians, ₹300 for foreigners",
     bestTimeToVisit: "Weekday mornings",
-    tips: [
-      "Visit the museum to see artifacts from British colonial periods",
-      "St. Mary's Church within the fort is worth visiting",
-      "Carry water and wear comfortable shoes as there's significant walking involved"
-    ]
+    transportOptions: {
+      car: "Parking available within fort premises",
+      bus: [
+        {
+          busNumber: "21G",
+          from: "T. Nagar",
+          to: "Fort St. George",
+          stops: ["T. Nagar", "Egmore", "Central", "Fort St. George"],
+          frequency: "Every 20 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "government-museum",
@@ -65,14 +81,22 @@ export const chennaiTouristAttractions: Attraction[] = [
     category: "tourist",
     cityId: "chennai",
     rating: 4.4,
-    openingHours: "9:30 AM - 5:00 PM (Closed on Fridays)",
+    timings: "9:30 AM - 5:00 PM (Closed on Fridays)",
     entryFee: "₹20 for Indians, ₹250 for foreigners",
     bestTimeToVisit: "Weekday afternoons",
-    tips: [
-      "Plan at least 3 hours to explore the various galleries",
-      "The Bronze Gallery is a highlight and shouldn't be missed",
-      "Photography is permitted but without flash"
-    ]
+    transportOptions: {
+      car: "Parking available within museum complex",
+      bus: [
+        {
+          busNumber: "27C",
+          from: "Chennai Central",
+          to: "Egmore Museum",
+          stops: ["Central Station", "Egmore Station", "Museum"],
+          frequency: "Every 20 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "santhome-basilica",
@@ -89,14 +113,22 @@ export const chennaiTouristAttractions: Attraction[] = [
     category: "tourist",
     cityId: "chennai",
     rating: 4.6,
-    openingHours: "6:00 AM - 8:00 PM",
+    timings: "6:00 AM - 8:00 PM",
     entryFee: "Free (Museum: ₹50)",
     bestTimeToVisit: "Morning or late afternoon",
-    tips: [
-      "Don't miss the museum in the basement",
-      "Visit around sunset when the white façade glows beautifully",
-      "Dress modestly as it's a place of worship"
-    ]
+    transportOptions: {
+      car: "Parking available near the basilica",
+      bus: [
+        {
+          busNumber: "6D",
+          from: "Broadway",
+          to: "Santhome",
+          stops: ["Broadway", "Mylapore", "Santhome"],
+          frequency: "Every 15 minutes"
+        }
+      ]
+    },
+    reviews: []
   },
   {
     id: "valluvar-kottam",
@@ -113,13 +145,21 @@ export const chennaiTouristAttractions: Attraction[] = [
     category: "tourist",
     cityId: "chennai",
     rating: 4.2,
-    openingHours: "8:00 AM - 6:00 PM (Closed on Mondays)",
+    timings: "8:00 AM - 6:00 PM (Closed on Mondays)",
     entryFee: "₹20 for Indians, ₹100 for foreigners",
     bestTimeToVisit: "Early morning or late afternoon",
-    tips: [
-      "The intricate carvings are worth studying closely",
-      "Visit during weekdays to avoid crowds",
-      "The surrounding gardens offer a peaceful retreat from the city"
-    ]
+    transportOptions: {
+      car: "Parking available at the monument",
+      bus: [
+        {
+          busNumber: "23C",
+          from: "T. Nagar",
+          to: "Valluvar Kottam",
+          stops: ["T. Nagar", "Kodambakkam", "Valluvar Kottam"],
+          frequency: "Every 15 minutes"
+        }
+      ]
+    },
+    reviews: []
   }
 ];
