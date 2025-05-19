@@ -8,7 +8,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import type { EmblaOptionsType } from "embla-carousel-react";
 
 interface AttractionGalleryProps {
   images: string[];
