@@ -84,16 +84,16 @@
   
   /* Apply appropriate heading colors based on background context */
   h1, h2, h3, h4, h5, h6 {
-    @apply text-travel-blue-800;
+    @apply text-black;
   }
   
-  /* Light backgrounds get dark headings */
+  /* Light backgrounds get black headings */
   .bg-white h1, .bg-gray-50 h1, .bg-white h2, .bg-gray-50 h2,
   .card h1, .card h2, .bg-white h3, .bg-gray-50 h3, .card h3 {
-    @apply text-travel-blue-800;
+    @apply text-black;
   }
   
-  /* Dark backgrounds get light headings */
+  /* Dark backgrounds get light headings (keep for readability) */
   .bg-travel-blue-800 h1, .bg-travel-blue-800 h2, .bg-travel-blue-800 h3,
   .bg-travel-blue-700 h1, .bg-travel-blue-700 h2, .bg-travel-blue-700 h3,
   .bg-black h1, .bg-black h2, .bg-black h3 {
