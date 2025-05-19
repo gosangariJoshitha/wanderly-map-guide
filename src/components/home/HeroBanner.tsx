@@ -35,7 +35,7 @@ export function HeroBanner() {
           }`}
           style={{ backgroundImage: `url(${image})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-travel-blue-900/80 via-travel-blue-800/70 to-travel-blue-900/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/80"></div>
         </div>
       ))}
       

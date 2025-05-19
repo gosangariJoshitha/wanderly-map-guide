@@ -46,10 +46,10 @@ const Index = () => {
         <section className="bg-gray-50 py-10 md:py-16">
           <div className="container">
             <div className="text-center mb-8 animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3 text-travel-blue-800">
+              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3 text-black">
                 Featured Cities
               </h2>
-              <p className="text-travel-blue-600 max-w-2xl mx-auto">
+              <p className="text-black max-w-2xl mx-auto">
                 From historic landmarks to modern metropolises, explore our handpicked selection of must-visit cities across India.
               </p>
             </div>
