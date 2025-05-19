@@ -41,7 +41,7 @@ export function HeroBanner() {
       
       <div className="container relative z-10 text-white text-center">
         <h1 className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-          Discover India's <span className="text-travel-teal-400">Breathtaking</span> Cities
+          <span className="text-white">Discover India's</span> <span className="text-travel-teal-400">Breathtaking</span> Cities
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-gray-100 animate-fade-in" style={{ animationDelay: "200ms" }}>
           Your ultimate guide to exploring the wonders, heritage, and hidden gems of India's most beautiful destinations.
