@@ -8,22 +8,24 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import { ImageIcon, Images } from "lucide-react";
+import { ImageIcon, Images, Play } from "lucide-react";
 
 interface AttractionGalleryProps {
   images: string[];
+  videos?: string[];
   className?: string;
 }
 
-export function AttractionGallery({ images, className }: AttractionGalleryProps) {
+export function AttractionGallery({ images, videos = [], className }: AttractionGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const mediaItems = [...images, ...videos];
 
-  // Ensure there are images to display
-  if (!images || images.length === 0) {
+  // Ensure there are media items to display
+  if ((!images || images.length === 0) && (!videos || videos.length === 0)) {
     return (
       <div className="flex flex-col items-center justify-center h-96 bg-gray-100 rounded-lg">
         <Images className="h-12 w-12 text-gray-400 mb-4" />
-        <p className="text-gray-500">No images available</p>
+        <p className="text-gray-500">No media available</p>
       </div>
     );
   }
@@ -42,6 +44,9 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
     return img;
   });
 
+  // Determine if a media item is a video or image
+  const isVideo = (index: number) => index >= images.length;
+  
   return (
     <div className={cn("space-y-6", className)}>
       <h2 className="text-4xl font-bold mb-6">Gallery</h2>
@@ -58,8 +63,9 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
         }}
       >
         <CarouselContent>
+          {/* Images */}
           {enrichedImages.map((imageUrl, index) => (
-            <CarouselItem key={index}>
+            <CarouselItem key={`image-${index}`}>
               <div className="aspect-[16/9] w-full lg:h-[700px] h-96 overflow-hidden rounded-xl">
                 <img
                   src={imageUrl}
@@ -74,9 +80,28 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
               </div>
             </CarouselItem>
           ))}
+          
+          {/* Videos */}
+          {videos.map((videoUrl, index) => (
+            <CarouselItem key={`video-${index}`}>
+              <div className="aspect-[16/9] w-full lg:h-[700px] h-96 overflow-hidden rounded-xl relative">
+                <video 
+                  src={videoUrl}
+                  controls
+                  className="h-full w-full object-cover"
+                >
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <Play className="h-16 w-16 text-white opacity-50" />
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
         </CarouselContent>
+        
         <div className="absolute inset-x-0 bottom-4 flex justify-center gap-1 p-2">
-          {enrichedImages.map((_, index) => (
+          {mediaItems.map((_, index) => (
             <button
               key={index}
               className={`h-3 rounded-full transition-all ${
@@ -86,8 +111,9 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
             />
           ))}
         </div>
-        <CarouselPrevious className="left-4 h-12 w-12 rounded-full" />
-        <CarouselNext className="right-4 h-12 w-12 rounded-full" />
+        
+        <CarouselPrevious className="left-4 h-12 w-12 rounded-full bg-transparent border-none hover:bg-black/10" />
+        <CarouselNext className="right-4 h-12 w-12 rounded-full bg-transparent border-none hover:bg-black/10" />
       </Carousel>
     </div>
   );

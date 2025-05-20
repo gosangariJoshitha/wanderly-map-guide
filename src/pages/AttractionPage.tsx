@@ -139,6 +139,12 @@ const AttractionPage = () => {
     ...(attraction.galleryImages || []),
   ] : [];
 
+  // Example videos - in a real app, these would come from the attraction data
+  const galleryVideos = attraction?.videos || [
+    "https://assets.mixkit.co/videos/preview/mixkit-tourist-looking-at-the-gateway-of-india-in-mumbai-42122-large.mp4",
+    "https://assets.mixkit.co/videos/preview/mixkit-top-aerial-shot-of-seashore-with-rocks-1090-large.mp4"
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -170,7 +176,7 @@ const AttractionPage = () => {
           {/* Image Gallery */}
           {attraction && (
             <div className="mb-8">
-              <AttractionGallery images={galleryImages} />
+              <AttractionGallery images={galleryImages} videos={galleryVideos} />
             </div>
           )}
 
