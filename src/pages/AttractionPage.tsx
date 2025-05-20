@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
@@ -15,7 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Clock, Calendar, Utensils, Tag, Ticket, Share2, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "@/components/ui/use-toast";
 
 const AttractionPage = () => {
   const { attractionId } = useParams<{ attractionId: string }>();
@@ -49,20 +48,36 @@ const AttractionPage = () => {
     loadAttraction();
   }, [attractionId]);
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: attraction?.name || "Check out this attraction",
-        text: `Check out ${attraction?.name} on CityWander`,
-        url: window.location.href
-      })
-      .then(() => toast({ title: "Shared successfully!" }))
-      .catch((error) => console.log('Error sharing:', error));
-    } else {
-      // Fallback for browsers that don't support Web Share API
-      navigator.clipboard.writeText(window.location.href)
-        .then(() => toast({ title: "Link copied to clipboard!" }))
-        .catch(() => toast({ title: "Failed to copy link", variant: "destructive" }));
+  const handleShare = async () => {
+    if (!attraction) return;
+    
+    const shareData = {
+      title: `${attraction.name} - CityWander`,
+      text: `Check out ${attraction.name} on CityWander!`,
+      url: window.location.href
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        toast({
+          title: "Shared successfully!"
+        });
+      } else {
+        // Fallback for browsers that don't support the Web Share API
+        await navigator.clipboard.writeText(window.location.href);
+        toast({
+          title: "Link copied to clipboard!",
+          description: "You can now share it with others."
+        });
+      }
+    } catch (error) {
+      console.error("Error sharing:", error);
+      toast({
+        title: "Sharing failed",
+        description: "Could not share this page.",
+        variant: "destructive"
+      });
     }
   };
 
@@ -119,17 +134,17 @@ const AttractionPage = () => {
   }
 
   // Gallery images for the attraction
-  const galleryImages = [
+  const galleryImages = attraction ? [
     attraction.imageUrl,
     ...(attraction.galleryImages || []),
-  ];
+  ] : [];
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       
       <main className="flex-grow">
-        <AttractionHeader attraction={attraction} />
+        {attraction && <AttractionHeader attraction={attraction} />}
         
         <div className="container py-6">
           {/* Action Buttons */}
@@ -153,9 +168,11 @@ const AttractionPage = () => {
           </div>
           
           {/* Image Gallery */}
-          <div className="mb-8">
-            <AttractionGallery images={galleryImages} />
-          </div>
+          {attraction && (
+            <div className="mb-8">
+              <AttractionGallery images={galleryImages} />
+            </div>
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Main Content */}

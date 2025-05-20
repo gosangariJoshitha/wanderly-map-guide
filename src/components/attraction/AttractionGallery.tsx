@@ -45,7 +45,7 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
         <CarouselContent>
           {images.map((imageUrl, index) => (
             <CarouselItem key={index}>
-              <div className="aspect-[16/9] w-full lg:h-[600px] overflow-hidden rounded-xl">
+              <div className="aspect-[16/9] w-full lg:h-[700px] overflow-hidden rounded-xl">
                 <img
                   src={imageUrl}
                   alt={`Attraction image ${index + 1}`}

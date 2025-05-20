@@ -56,7 +56,7 @@ export function CityHeader({ city }: CityHeaderProps) {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
             <div className="text-travel-teal-400 text-sm font-medium mb-1">{city.region} India</div>
-            <h1 className="font-poppins text-3xl md:text-4xl lg:text-5xl font-bold mb-2">{city.name}</h1>
+            <h1 className="font-poppins text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-white">{city.name}</h1>
             <div className="flex items-center gap-2 text-sm text-gray-200">
               <MapPin className="h-4 w-4 text-travel-teal-400" />
               <span>{city.state}</span>
