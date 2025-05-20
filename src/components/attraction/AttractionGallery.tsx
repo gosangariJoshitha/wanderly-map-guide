@@ -8,7 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import { Gallery, Image as ImageIcon } from "lucide-react";
+import { ImageIcon, Images } from "lucide-react";
 
 interface AttractionGalleryProps {
   images: string[];
@@ -22,7 +22,7 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
   if (!images || images.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-96 bg-gray-100 rounded-lg">
-        <Gallery className="h-12 w-12 text-gray-400 mb-4" />
+        <Images className="h-12 w-12 text-gray-400 mb-4" />
         <p className="text-gray-500">No images available</p>
       </div>
     );
