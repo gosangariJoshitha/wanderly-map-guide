@@ -26,7 +26,7 @@ export function CityCard({ city }: CityCardProps) {
         </div>
       </div>
       <CardHeader className="pb-2">
-        <CardTitle className="text-xl flex items-center gap-2">
+        <CardTitle className="text-xl flex items-center gap-2 text-white">
           {city.name}
         </CardTitle>
         <CardDescription className="flex items-center gap-1">

@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+import { Gallery, Image as ImageIcon } from "lucide-react";
 
 interface AttractionGalleryProps {
   images: string[];
@@ -19,13 +20,27 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
 
   // Ensure there are images to display
   if (!images || images.length === 0) {
-    return null;
+    return (
+      <div className="flex flex-col items-center justify-center h-96 bg-gray-100 rounded-lg">
+        <Gallery className="h-12 w-12 text-gray-400 mb-4" />
+        <p className="text-gray-500">No images available</p>
+      </div>
+    );
   }
 
   // Handler for the carousel index change
   const handleIndexChange = (index: number) => {
     setCurrentIndex(index);
   };
+
+  // Add placeholder images if needed - this is just a fallback, not typically needed
+  const enrichedImages = images.map(img => {
+    // If the image URL is empty or doesn't look valid, replace with a placeholder
+    if (!img || img.trim() === '') {
+      return 'https://images.unsplash.com/photo-1492321936769-b49830bc1d1e';
+    }
+    return img;
+  });
 
   return (
     <div className={cn("space-y-6", className)}>
@@ -43,25 +58,25 @@ export function AttractionGallery({ images, className }: AttractionGalleryProps)
         }}
       >
         <CarouselContent>
-          {images.map((imageUrl, index) => (
+          {enrichedImages.map((imageUrl, index) => (
             <CarouselItem key={index}>
-              <div className="aspect-[16/9] w-full lg:h-[700px] overflow-hidden rounded-xl">
+              <div className="aspect-[16/9] w-full lg:h-[700px] h-96 overflow-hidden rounded-xl">
                 <img
                   src={imageUrl}
                   alt={`Attraction image ${index + 1}`}
                   className="h-full w-full object-cover"
                 />
+                {imageUrl.includes("Gateway") && (
+                  <div className="absolute bottom-8 left-8 text-white text-3xl font-semibold">
+                    Gateway of India
+                  </div>
+                )}
               </div>
-              {images[currentIndex].includes("Gateway") && (
-                <div className="absolute bottom-8 left-8 text-white text-3xl font-semibold">
-                  Gateway of India
-                </div>
-              )}
             </CarouselItem>
           ))}
         </CarouselContent>
         <div className="absolute inset-x-0 bottom-4 flex justify-center gap-1 p-2">
-          {images.map((_, index) => (
+          {enrichedImages.map((_, index) => (
             <button
               key={index}
               className={`h-3 rounded-full transition-all ${

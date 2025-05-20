@@ -63,7 +63,7 @@ export function FeaturedCitiesCarousel({ cities }: FeaturedCitiesCarouselProps) 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                    <h3 className="text-2xl font-bold mb-1 animate-fade-in">{city.name}</h3>
+                    <h3 className="text-2xl font-bold mb-1 animate-fade-in text-white">{city.name}</h3>
                     <p className="text-sm text-gray-200 mb-3 animate-fade-in" style={{ animationDelay: "100ms" }}>{city.state}</p>
                     <p className="line-clamp-2 text-sm mb-4 animate-fade-in" style={{ animationDelay: "200ms" }}>{city.description}</p>
                     <div className="flex justify-between items-center animate-fade-in" style={{ animationDelay: "300ms" }}>
