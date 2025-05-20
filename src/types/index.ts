@@ -65,6 +65,7 @@ export interface Attraction {
   description: string;
   imageUrl: string;
   galleryImages?: string[];
+  videos?: string[]; // Add the videos property
   category: "tourist" | "temple" | "other";
   cityId?: string;
   location: {
