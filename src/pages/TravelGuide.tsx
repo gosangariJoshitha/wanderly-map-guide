@@ -91,7 +91,7 @@ const TravelGuide = () => {
                   <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {cities.map(city => (
                       <div key={city.id} className="border rounded-md p-4 hover:shadow-md transition-shadow">
-                        <h3 className="font-semibold text-lg mb-2">{city.name}</h3>
+                        <h3 className="font-semibold text-lg mb-2 text-black">{city.name}</h3>
                         <div className="text-sm text-gray-600 space-y-2">
                           <div className="flex items-center gap-1">
                             <MapPin className="h-4 w-4 text-travel-teal-500" />
