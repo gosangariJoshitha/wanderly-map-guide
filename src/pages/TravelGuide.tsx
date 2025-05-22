@@ -90,32 +90,41 @@ const TravelGuide = () => {
                 <div className="p-4">
                   <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {cities.map(city => (
-                      <div key={city.id} className="border rounded-md p-4 hover:shadow-md transition-shadow">
-                        <h3 className="font-semibold text-lg mb-2 text-black">{city.name}</h3>
-                        <div className="text-sm text-gray-600 space-y-2">
-                          <div className="flex items-center gap-1">
-                            <MapPin className="h-4 w-4 text-travel-teal-500" />
-                            <span>{city.state}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Calendar className="h-4 w-4 text-travel-teal-500" />
-                            <span>Best time: {city.bestTimeToVisit}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Globe className="h-4 w-4 text-travel-teal-500" />
-                            <span>Languages: {city.languages.slice(0, 2).join(", ")}</span>
-                          </div>
+                      <div key={city.id} className="border rounded-md overflow-hidden hover:shadow-md transition-shadow">
+                        <div className="h-40 overflow-hidden">
+                          <img 
+                            src={city.imageUrl || "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e"}
+                            alt={city.name}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
-                        <div className="mt-3">
-                          <Button 
-                            variant="outline" 
-                            size="sm" 
-                            className="w-full text-travel-blue-600 border-travel-blue-200 hover:border-travel-blue-400 hover:bg-travel-blue-50"
-                            onClick={() => navigate(`/city/${city.id}`)}
-                          >
-                            View Details
-                            <ChevronRight className="h-4 w-4 ml-1" />
-                          </Button>
+                        <div className="p-4">
+                          <h3 className="font-semibold text-lg mb-2 text-black">{city.name}</h3>
+                          <div className="text-sm text-gray-600 space-y-2">
+                            <div className="flex items-center gap-1">
+                              <MapPin className="h-4 w-4 text-travel-teal-500" />
+                              <span>{city.state}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Calendar className="h-4 w-4 text-travel-teal-500" />
+                              <span>Best time: {city.bestTimeToVisit}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Globe className="h-4 w-4 text-travel-teal-500" />
+                              <span>Languages: {city.languages.slice(0, 2).join(", ")}</span>
+                            </div>
+                          </div>
+                          <div className="mt-3">
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="w-full text-travel-blue-600 border-travel-blue-200 hover:border-travel-blue-400 hover:bg-travel-blue-50"
+                              onClick={() => navigate(`/city/${city.id}`)}
+                            >
+                              View Details
+                              <ChevronRight className="h-4 w-4 ml-1" />
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     ))}
