@@ -3,12 +3,13 @@ import { useState } from "react";
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import { ImageIcon, Images, Play } from "lucide-react";
+import { GalleryMediaItem } from "./GalleryMediaItem";
+import { GalleryPagination } from "./GalleryPagination";
+import { EmptyGallery } from "./EmptyGallery";
 
 interface AttractionGalleryProps {
   images: string[];
@@ -18,16 +19,14 @@ interface AttractionGalleryProps {
 
 export function AttractionGallery({ images, videos = [], className }: AttractionGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const mediaItems = [...images, ...videos];
+  
+  // Combine images and videos into one array of media items
+  const enrichedImages = processImages(images);
+  const mediaItems = [...enrichedImages, ...videos];
 
   // Ensure there are media items to display
-  if ((!images || images.length === 0) && (!videos || videos.length === 0)) {
-    return (
-      <div className="flex flex-col items-center justify-center h-96 bg-gray-100 rounded-lg">
-        <Images className="h-12 w-12 text-gray-400 mb-4" />
-        <p className="text-gray-500">No media available</p>
-      </div>
-    );
+  if (mediaItems.length === 0) {
+    return <EmptyGallery />;
   }
 
   // Handler for the carousel index change
@@ -35,17 +34,8 @@ export function AttractionGallery({ images, videos = [], className }: Attraction
     setCurrentIndex(index);
   };
 
-  // Add placeholder images if needed - this is just a fallback, not typically needed
-  const enrichedImages = images.map(img => {
-    // If the image URL is empty or doesn't look valid, replace with a placeholder
-    if (!img || img.trim() === '') {
-      return 'https://images.unsplash.com/photo-1492321936769-b49830bc1d1e';
-    }
-    return img;
-  });
-
   // Determine if a media item is a video or image
-  const isVideo = (index: number) => index >= images.length;
+  const isVideo = (index: number) => index >= enrichedImages.length;
   
   return (
     <div className={cn("space-y-6", className)}>
@@ -63,58 +53,36 @@ export function AttractionGallery({ images, videos = [], className }: Attraction
         }}
       >
         <CarouselContent>
-          {/* Images */}
-          {enrichedImages.map((imageUrl, index) => (
-            <CarouselItem key={`image-${index}`}>
-              <div className="aspect-[16/9] w-full lg:h-[700px] h-96 overflow-hidden rounded-xl">
-                <img
-                  src={imageUrl}
-                  alt={`Attraction image ${index + 1}`}
-                  className="h-full w-full object-cover"
-                />
-                {imageUrl.includes("Gateway") && (
-                  <div className="absolute bottom-8 left-8 text-white text-3xl font-semibold">
-                    Gateway of India
-                  </div>
-                )}
-              </div>
-            </CarouselItem>
-          ))}
-          
-          {/* Videos */}
-          {videos.map((videoUrl, index) => (
-            <CarouselItem key={`video-${index}`}>
-              <div className="aspect-[16/9] w-full lg:h-[700px] h-96 overflow-hidden rounded-xl relative">
-                <video 
-                  src={videoUrl}
-                  controls
-                  className="h-full w-full object-cover"
-                >
-                  Your browser does not support the video tag.
-                </video>
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <Play className="h-16 w-16 text-white opacity-50" />
-                </div>
-              </div>
-            </CarouselItem>
+          {mediaItems.map((item, index) => (
+            <GalleryMediaItem 
+              key={`item-${index}`}
+              item={item} 
+              index={index} 
+              isVideo={isVideo(index)} 
+            />
           ))}
         </CarouselContent>
         
-        <div className="absolute inset-x-0 bottom-4 flex justify-center gap-1 p-2">
-          {mediaItems.map((_, index) => (
-            <button
-              key={index}
-              className={`h-3 rounded-full transition-all ${
-                currentIndex === index ? "w-10 bg-white" : "w-3 bg-white/50"
-              }`}
-              onClick={() => setCurrentIndex(index)}
-            />
-          ))}
-        </div>
+        <GalleryPagination 
+          items={mediaItems} 
+          currentIndex={currentIndex} 
+          onSelect={setCurrentIndex} 
+        />
         
         <CarouselPrevious className="left-4 h-12 w-12 rounded-full bg-transparent border-none hover:bg-black/10" />
         <CarouselNext className="right-4 h-12 w-12 rounded-full bg-transparent border-none hover:bg-black/10" />
       </Carousel>
     </div>
   );
+}
+
+// Helper function to process images (handle empty URLs etc.)
+function processImages(images: string[]): string[] {
+  return images.map(img => {
+    // If the image URL is empty or doesn't look valid, replace with a placeholder
+    if (!img || img.trim() === '') {
+      return 'https://images.unsplash.com/photo-1492321936769-b49830bc1d1e';
+    }
+    return img;
+  });
 }
