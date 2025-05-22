@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
@@ -61,12 +62,6 @@ const AttractionPage = () => {
     ...(attraction.galleryImages || []),
   ] : [];
 
-  // Example videos - in a real app, these would come from the attraction data
-  const galleryVideos = attraction.videos || [
-    "https://assets.mixkit.co/videos/preview/mixkit-tourist-looking-at-the-gateway-of-india-in-mumbai-42122-large.mp4",
-    "https://assets.mixkit.co/videos/preview/mixkit-top-aerial-shot-of-seashore-with-rocks-1090-large.mp4"
-  ];
-
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -78,9 +73,9 @@ const AttractionPage = () => {
           {/* Action Buttons */}
           <AttractionActions attractionName={attraction.name} cityId={attraction.cityId} />
           
-          {/* Image Gallery */}
+          {/* Image Gallery - removed videos prop */}
           <div className="mb-8">
-            <AttractionGallery images={galleryImages} videos={galleryVideos} />
+            <AttractionGallery images={galleryImages} />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

@@ -13,16 +13,15 @@ import { EmptyGallery } from "./EmptyGallery";
 
 interface AttractionGalleryProps {
   images: string[];
-  videos?: string[];
   className?: string;
 }
 
-export function AttractionGallery({ images, videos = [], className }: AttractionGalleryProps) {
+export function AttractionGallery({ images, className }: AttractionGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   
-  // Combine images and videos into one array of media items
+  // Process images to handle empty URLs
   const enrichedImages = processImages(images);
-  const mediaItems = [...enrichedImages, ...videos];
+  const mediaItems = [...enrichedImages];
 
   // Ensure there are media items to display
   if (mediaItems.length === 0) {
@@ -33,9 +32,6 @@ export function AttractionGallery({ images, videos = [], className }: Attraction
   const handleIndexChange = (index: number) => {
     setCurrentIndex(index);
   };
-
-  // Determine if a media item is a video or image
-  const isVideo = (index: number) => index >= enrichedImages.length;
   
   return (
     <div className={cn("space-y-6", className)}>
@@ -58,7 +54,7 @@ export function AttractionGallery({ images, videos = [], className }: Attraction
               key={`item-${index}`}
               item={item} 
               index={index} 
-              isVideo={isVideo(index)} 
+              isVideo={false} 
             />
           ))}
         </CarouselContent>
@@ -69,8 +65,9 @@ export function AttractionGallery({ images, videos = [], className }: Attraction
           onSelect={setCurrentIndex} 
         />
         
-        <CarouselPrevious className="left-4 h-12 w-12 rounded-full bg-transparent border-none hover:bg-black/10" />
-        <CarouselNext className="right-4 h-12 w-12 rounded-full bg-transparent border-none hover:bg-black/10" />
+        {/* Hiding arrows by setting className to hidden */}
+        <CarouselPrevious className="hidden" />
+        <CarouselNext className="hidden" />
       </Carousel>
     </div>
   );

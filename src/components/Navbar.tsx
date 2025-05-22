@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MapPin, Search, Menu, User, ArrowLeft, LogOut } from "lucide-react";
+import { MapPin, Search, Menu, User, ArrowLeft, LogOut, Home, Map, Building, Bus } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import {
   Drawer,
@@ -121,12 +121,73 @@ export function Navbar() {
           </DrawerTrigger>
           <DrawerContent>
             <DrawerHeader>
-              <DrawerTitle className="text-2xl font-bold">CityWander</DrawerTitle>
+              <div className="flex items-center gap-4">
+                <div className="bg-orange-400 rounded-full w-16 h-16 flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">CW</span>
+                </div>
+                <div className="flex flex-col">
+                  <DrawerTitle className="text-2xl font-bold">City Wander</DrawerTitle>
+                  <p className="text-gray-500 text-sm">Clarity in Every Journey</p>
+                </div>
+              </div>
             </DrawerHeader>
+            
             <div className="p-4 space-y-4">
-              {isAuthenticated && (
-                <div className="p-6 bg-gray-50 rounded-lg space-y-4 mb-6">
-                  <div className="flex items-center gap-3">
+              <nav className="flex flex-col space-y-1">
+                <Link 
+                  to="/" 
+                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-4"
+                >
+                  <Home className="h-6 w-6" />
+                  Home
+                </Link>
+                
+                <Link 
+                  to="/cities" 
+                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-4"
+                >
+                  <Map className="h-6 w-6" />
+                  Explore Cities
+                </Link>
+                
+                <Link 
+                  to="/travel-guide" 
+                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-4"
+                >
+                  <Building className="h-6 w-6" />
+                  All Cities Details
+                </Link>
+                
+                <Link 
+                  to="/transportation" 
+                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-4"
+                >
+                  <Bus className="h-6 w-6" />
+                  Transportation
+                </Link>
+              </nav>
+              
+              <div className="border-t mt-auto pt-4"></div>
+              
+              {!isAuthenticated ? (
+                <div className="space-y-2">
+                  <Link to="/login" className="w-full">
+                    <Button variant="outline" className="w-full flex justify-center items-center gap-2">
+                      <ArrowLeft className="h-5 w-5" />
+                      Login
+                    </Button>
+                  </Link>
+                  
+                  <Link to="/register" className="w-full">
+                    <Button className="w-full bg-orange-500 hover:bg-orange-600 flex justify-center items-center gap-2">
+                      <User className="h-5 w-5" />
+                      Register
+                    </Button>
+                  </Link>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="p-4 bg-gray-50 rounded-lg flex items-center gap-3">
                     <div className="h-12 w-12 rounded-full bg-travel-teal-100 flex items-center justify-center">
                       <User className="h-6 w-6 text-travel-teal-600" />
                     </div>
@@ -146,61 +207,6 @@ export function Navbar() {
                   </Button>
                 </div>
               )}
-
-              <div className="border-b pb-4 mb-4">
-                <Link to="/" className="flex items-center gap-3 w-full p-3 hover:bg-gray-50 rounded-md">
-                  <ArrowLeft className="h-5 w-5" />
-                  <span className="font-medium">Go Back</span>
-                </Link>
-              </div>
-
-              <nav className="flex flex-col space-y-1">
-                <Link 
-                  to="/" 
-                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-3"
-                >
-                  <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                  </svg>
-                  Home
-                </Link>
-                <Link 
-                  to="/cities" 
-                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-3"
-                >
-                  <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 22h20"></path>
-                    <path d="M6.87 2l-4.3 4.3a.61.61 0 00.43 1.05h3v7.65a.6.6 0 001.2 0V7.35h3a.61.61 0 00.43-1.05L6.87 2z"></path>
-                    <path d="M14.87 15l-4.3 4.3a.61.61 0 00.43 1.05h3v-3a.6.6 0 011.2 0v3h3a.61.61 0 00.43-1.05L14.87 15z"></path>
-                  </svg>
-                  Explore Cities
-                </Link>
-                <Link 
-                  to="/travel-guide" 
-                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-3"
-                >
-                  <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="3" y1="9" x2="21" y2="9"></line>
-                    <line x1="9" y1="21" x2="9" y2="9"></line>
-                  </svg>
-                  All Cities Detail
-                </Link>
-                
-                {!isAuthenticated && (
-                  <div className="pt-4 flex flex-col space-y-2">
-                    <Link to="/login">
-                      <Button variant="outline" className="w-full">
-                        Log in
-                      </Button>
-                    </Link>
-                    <Link to="/register">
-                      <Button className="w-full">Sign up</Button>
-                    </Link>
-                  </div>
-                )}
-              </nav>
             </div>
           </DrawerContent>
         </Drawer>
