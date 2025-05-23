@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MapPin, Search, Menu, User, ArrowLeft, LogOut, Home, Map, Building, Bus } from "lucide-react";
+import { MapPin, Search, Menu, User, ArrowLeft, LogOut, Home, Map, Building, Bus, X } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import {
   Drawer,
@@ -11,6 +11,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
+  DrawerClose,
 } from "@/components/ui/drawer";
 import {
   Popover,
@@ -121,14 +122,22 @@ export function Navbar() {
           </DrawerTrigger>
           <DrawerContent>
             <DrawerHeader>
-              <div className="flex items-center gap-4">
-                <div className="bg-orange-400 rounded-full w-16 h-16 flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">CW</span>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="bg-orange-400 rounded-full w-16 h-16 flex items-center justify-center">
+                    <span className="text-white text-2xl font-bold">CW</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <DrawerTitle className="text-2xl font-bold">City Wander</DrawerTitle>
+                    <p className="text-gray-500 text-sm">Clarity in Every Journey</p>
+                  </div>
                 </div>
-                <div className="flex flex-col">
-                  <DrawerTitle className="text-2xl font-bold">City Wander</DrawerTitle>
-                  <p className="text-gray-500 text-sm">Clarity in Every Journey</p>
-                </div>
+                <DrawerClose asChild>
+                  <Button variant="ghost" size="icon">
+                    <X className="h-6 w-6" />
+                    <span className="sr-only">Close</span>
+                  </Button>
+                </DrawerClose>
               </div>
             </DrawerHeader>
             

@@ -13,6 +13,7 @@ import Cities from "./pages/Cities";
 import CityPage from "./pages/CityPage";
 import AttractionPage from "./pages/AttractionPage";
 import TravelGuide from "./pages/TravelGuide";
+import Transportation from "./pages/Transportation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/travel-guide" element={<TravelGuide />} />
+            <Route path="/transportation" element={<Transportation />} />
             
             {/* Protected Routes */}
             <Route path="/cities" element={

@@ -4,13 +4,13 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/home/HeroBanner";
 import { FeaturedCitiesCarousel } from "@/components/home/FeaturedCitiesCarousel";
+import { PopularPlaces } from "@/components/home/PopularPlaces";
 import { Button } from "@/components/ui/button";
 import { City } from "@/types";
 import { Link } from "react-router-dom";
 import { fetchCities } from "@/services/dataService";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronRight } from "lucide-react";
-import { HowItWorks } from "@/components/home/HowItWorks";
 
 const Index = () => {
   const [cities, setCities] = useState<City[]>([]);
@@ -39,8 +39,8 @@ const Index = () => {
         {/* Hero Banner */}
         <HeroBanner />
         
-        {/* How It Works Section */}
-        <HowItWorks />
+        {/* Popular Places Section */}
+        <PopularPlaces />
         
         {/* Featured Cities Section */}
         <section className="bg-gray-50 py-10 md:py-16">
