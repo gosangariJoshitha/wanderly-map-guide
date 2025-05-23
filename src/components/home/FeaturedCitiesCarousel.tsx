@@ -6,6 +6,7 @@ import { City } from "@/types";
 import { Link } from "react-router-dom";
 import { Share2, ChevronRight } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { CityCard } from "./CityCard";
 
 interface FeaturedCitiesCarouselProps {
   cities: City[];
@@ -49,44 +50,13 @@ export function FeaturedCitiesCarousel({ cities }: FeaturedCitiesCarouselProps) 
   };
 
   return (
-    <div className="relative">
+    <div className="relative px-4 pb-10">
       <Carousel className="w-full">
         <CarouselContent>
           {cities.map((city) => (
-            <CarouselItem key={city.id} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={city.id} className="md:basis-1/2 lg:basis-1/2">
               <div className="h-full p-1">
-                <div className="relative group h-full overflow-hidden rounded-xl">
-                  <img
-                    src={city.imageUrl}
-                    alt={city.name}
-                    className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                    <h3 className="text-2xl font-bold mb-1 animate-fade-in text-white">{city.name}</h3>
-                    <p className="text-sm text-gray-200 mb-3 animate-fade-in" style={{ animationDelay: "100ms" }}>{city.state}</p>
-                    <p className="line-clamp-2 text-sm mb-4 animate-fade-in" style={{ animationDelay: "200ms" }}>{city.description}</p>
-                    <div className="flex justify-between items-center animate-fade-in" style={{ animationDelay: "300ms" }}>
-                      <Link to={`/city/${city.id}`} className="group/explore">
-                        <Button 
-                          variant="default" 
-                          className="bg-travel-teal-500 hover:bg-travel-teal-600 text-white flex items-center gap-2 transition-all duration-300 group-hover/explore:pl-6"
-                        >
-                          Explore
-                          <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover/explore:translate-x-1" />
-                        </Button>
-                      </Link>
-                      <Button 
-                        variant="ghost" 
-                        size="icon"
-                        onClick={() => handleShareCity(city)}
-                        className="text-white hover:bg-white/20"
-                      >
-                        <Share2 className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-                </div>
+                <CityCard city={city} />
               </div>
             </CarouselItem>
           ))}
@@ -96,6 +66,17 @@ export function FeaturedCitiesCarousel({ cities }: FeaturedCitiesCarouselProps) 
           <CarouselNext className="-right-4 bg-white/80 border-none hover:bg-white" />
         </div>
       </Carousel>
+      
+      <div className="flex justify-center mt-8">
+        <Link to="/cities">
+          <Button 
+            className="bg-travel-teal-500 hover:bg-travel-teal-600 text-white px-8 py-6 text-lg rounded-lg flex items-center gap-2"
+          >
+            View All Cities
+            <ChevronRight className="h-5 w-5" />
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }

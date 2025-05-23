@@ -12,42 +12,40 @@ interface CityCardProps {
 
 export function CityCard({ city }: CityCardProps) {
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.01]">
-      <div className="relative h-48 overflow-hidden">
+    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.01] border-0 rounded-xl">
+      <div className="relative h-72 overflow-hidden">
         <img
           src={city.imageUrl}
           alt={city.name}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
         />
-        <div className="absolute top-0 inset-x-0 p-4 bg-gradient-to-b from-black/70 to-transparent">
-          <Badge variant="outline" className="bg-white/90 text-travel-blue-700">
-            {city.attractionsCount} Attractions
-          </Badge>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent">
+          <div className="absolute bottom-8 left-6">
+            <h3 className="text-4xl font-bold text-white">{city.name}</h3>
+            <div className="flex mt-2">
+              {[...Array(Math.floor(city.rating || 4))].map((_, i) => (
+                <span key={i} className="text-yellow-400 text-2xl">★</span>
+              ))}
+              {city.rating && !Number.isInteger(city.rating) && (
+                <span className="text-yellow-400 text-2xl">★</span>
+              )}
+              {[...Array(5 - Math.ceil(city.rating || 4))].map((_, i) => (
+                <span key={i} className="text-yellow-400 text-2xl opacity-40">★</span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-      <CardHeader className="pb-2">
-        <CardTitle className="text-xl flex items-center gap-2 text-white">
-          {city.name}
-        </CardTitle>
-        <CardDescription className="flex items-center gap-1">
-          <MapPin className="h-3.5 w-3.5" />
-          {city.state}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm line-clamp-3">{city.description}</p>
+      <CardContent className="p-6">
+        <p className="text-xl text-gray-700">{city.description}</p>
+        <div className="flex justify-between items-center mt-6">
+          <p className="text-travel-teal-500 font-medium">{city.attractionsCount || 24} attractions</p>
+          <Link to={`/city/${city.id}`} className="text-travel-teal-500 font-medium flex items-center">
+            Login to Explore
+            <ChevronRight className="h-5 w-5 ml-1" />
+          </Link>
+        </div>
       </CardContent>
-      <CardFooter className="pt-1">
-        <Link to={`/city/${city.id}`} className="w-full">
-          <Button 
-            className="w-full bg-travel-teal-500 text-white hover:bg-travel-teal-600 group flex items-center justify-center gap-2" 
-            variant="default"
-          >
-            Explore
-            <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Button>
-        </Link>
-      </CardFooter>
     </Card>
   );
 }

@@ -39,7 +39,7 @@ const Index = () => {
         {/* Hero Banner */}
         <HeroBanner />
         
-        {/* How It Works Section (replacing Why Choose CityWander) */}
+        {/* How It Works Section */}
         <HowItWorks />
         
         {/* Featured Cities Section */}
@@ -66,22 +66,9 @@ const Index = () => {
                 ))}
               </div>
             ) : (
-              <>
-                <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
-                  <FeaturedCitiesCarousel cities={cities.slice(0, 6)} />
-                </div>
-                <div className="text-center mt-8 animate-fade-in" style={{ animationDelay: "400ms" }}>
-                  <Link to="/cities">
-                    <Button 
-                      variant="outline" 
-                      className="bg-travel-teal-500 hover:bg-travel-teal-600 text-white border-none group flex items-center gap-2"
-                    >
-                      View All Cities
-                      <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                </div>
-              </>
+              <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
+                <FeaturedCitiesCarousel cities={cities.slice(0, 6)} />
+              </div>
             )}
           </div>
         </section>
