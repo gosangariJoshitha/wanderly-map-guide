@@ -42,18 +42,12 @@ const DrawerContent = React.forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed inset-y-0 left-0 z-50 h-full max-w-[90%] w-[340px] border-r bg-background shadow-lg transition duration-300 ease-in-out data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left",
+        "fixed inset-y-0 left-0 z-50 h-full w-[340px] max-w-[90%] border-r bg-background shadow-lg transition-transform ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-left data-[state=closed]:slide-out-to-left",
         className
       )}
       {...props}
     >
       {children}
-      <div className="absolute bottom-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-muted">
-        <DrawerClose className="h-4 w-4 rounded-full">
-          <span className="sr-only">Close</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </DrawerClose>
-      </div>
     </DrawerPrimitive.Content>
   </DrawerPortal>
 ))

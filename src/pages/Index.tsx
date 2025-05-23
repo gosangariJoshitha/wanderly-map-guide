@@ -38,6 +38,9 @@ const Index = () => {
         {/* Hero Banner */}
         <HeroBanner />
         
+        {/* How It Works Section */}
+        <HowItWorks />
+        
         {/* Popular Places Section */}
         <PopularPlaces />
         
@@ -50,9 +53,6 @@ const Index = () => {
             </Button>
           </Link>
         </div>
-        
-        {/* How It Works Section */}
-        <HowItWorks />
       </main>
       
       <Footer />

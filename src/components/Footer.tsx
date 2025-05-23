@@ -64,18 +64,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/city/jaipur" className="text-sm text-gray-300 hover:text-travel-teal-400 transition">
-                  Jaipur
-                </Link>
-              </li>
-              <li>
                 <Link to="/city/hyderabad" className="text-sm text-gray-300 hover:text-travel-teal-400 transition">
                   Hyderabad
-                </Link>
-              </li>
-              <li>
-                <Link to="/city/varanasi" className="text-sm text-gray-300 hover:text-travel-teal-400 transition">
-                  Varanasi
                 </Link>
               </li>
             </ul>

@@ -120,102 +120,14 @@ export function Navbar() {
               <Menu className="h-6 w-6" />
             </Button>
           </DrawerTrigger>
-          <DrawerContent>
-            <DrawerHeader>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="bg-orange-400 rounded-full w-16 h-16 flex items-center justify-center">
-                    <span className="text-white text-2xl font-bold">CW</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <DrawerTitle className="text-2xl font-bold">City Wander</DrawerTitle>
-                    <p className="text-gray-500 text-sm">Clarity in Every Journey</p>
-                  </div>
-                </div>
-                <DrawerClose asChild>
-                  <Button variant="ghost" size="icon">
-                    <X className="h-6 w-6" />
-                    <span className="sr-only">Close</span>
-                  </Button>
-                </DrawerClose>
-              </div>
-            </DrawerHeader>
-            
-            <div className="p-4 space-y-4">
-              <nav className="flex flex-col space-y-1">
-                <Link 
-                  to="/" 
-                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-4"
-                >
-                  <Home className="h-6 w-6" />
-                  Home
-                </Link>
-                
-                <Link 
-                  to="/cities" 
-                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-4"
-                >
-                  <Map className="h-6 w-6" />
-                  Explore Cities
-                </Link>
-                
-                <Link 
-                  to="/travel-guide" 
-                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-4"
-                >
-                  <Building className="h-6 w-6" />
-                  All Cities Details
-                </Link>
-                
-                <Link 
-                  to="/transportation" 
-                  className="text-base font-medium p-3 hover:bg-accent rounded-md flex items-center gap-4"
-                >
-                  <Bus className="h-6 w-6" />
-                  Transportation
-                </Link>
-              </nav>
-              
-              <div className="border-t mt-auto pt-4"></div>
-              
-              {!isAuthenticated ? (
-                <div className="space-y-2">
-                  <Link to="/login" className="w-full">
-                    <Button variant="outline" className="w-full flex justify-center items-center gap-2">
-                      <ArrowLeft className="h-5 w-5" />
-                      Login
-                    </Button>
-                  </Link>
-                  
-                  <Link to="/register" className="w-full">
-                    <Button className="w-full bg-orange-500 hover:bg-orange-600 flex justify-center items-center gap-2">
-                      <User className="h-5 w-5" />
-                      Register
-                    </Button>
-                  </Link>
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  <div className="p-4 bg-gray-50 rounded-lg flex items-center gap-3">
-                    <div className="h-12 w-12 rounded-full bg-travel-teal-100 flex items-center justify-center">
-                      <User className="h-6 w-6 text-travel-teal-600" />
-                    </div>
-                    <div>
-                      <p className="text-lg font-medium">Hello, {currentUser?.username || 'Traveler'}</p>
-                      <p className="text-sm text-gray-500">{currentUser?.email}</p>
-                    </div>
-                  </div>
-                  
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-center" 
-                    onClick={handleLogout}
-                  >
-                    <LogOut className="mr-2 h-4 w-4" />
-                    Logout
-                  </Button>
-                </div>
-              )}
+          <DrawerContent className="left-0 right-auto w-full max-w-[320px] data-[state=open]:slide-in-from-left">
+            <div className="absolute top-4 right-4">
+              <DrawerClose asChild>
+                <Button variant="ghost" size="icon">
+                  <X className="h-6 w-6" />
+                  <span className="sr-only">Close</span>
+                </Button>
+              </DrawerClose>
             </div>
           </DrawerContent>
         </Drawer>
