@@ -3,13 +3,12 @@ import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/home/HeroBanner";
-import { FeaturedCitiesCarousel } from "@/components/home/FeaturedCitiesCarousel";
 import { PopularPlaces } from "@/components/home/PopularPlaces";
 import { Button } from "@/components/ui/button";
 import { City } from "@/types";
 import { Link } from "react-router-dom";
 import { fetchCities } from "@/services/dataService";
-import { Skeleton } from "@/components/ui/skeleton";
+import { HowItWorks } from "@/components/home/HowItWorks";
 import { ChevronRight } from "lucide-react";
 
 const Index = () => {
@@ -42,36 +41,17 @@ const Index = () => {
         {/* Popular Places Section */}
         <PopularPlaces />
         
-        {/* Featured Cities Section */}
-        <section className="bg-gray-50 py-10 md:py-16">
-          <div className="container">
-            <div className="text-center mb-8 animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-3 text-black">
-                Featured Cities
-              </h2>
-              <p className="text-black max-w-2xl mx-auto">
-                From historic landmarks to modern metropolises, explore our handpicked selection of must-visit cities across India.
-              </p>
-            </div>
-            
-            {loading ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[...Array(3)].map((_, i) => (
-                  <div key={i} className="flex flex-col gap-3">
-                    <Skeleton className="h-80 w-full rounded-lg" />
-                    <Skeleton className="h-8 w-3/4" />
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-5/6" />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
-                <FeaturedCitiesCarousel cities={cities.slice(0, 6)} />
-              </div>
-            )}
-          </div>
-        </section>
+        {/* How It Works Section */}
+        <HowItWorks />
+        
+        <div className="flex justify-center mt-10 mb-16">
+          <Link to="/cities">
+            <Button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-2 text-base rounded-full flex items-center">
+              View All Cities
+              <ChevronRight className="ml-1 h-5 w-5" />
+            </Button>
+          </Link>
+        </div>
       </main>
       
       <Footer />

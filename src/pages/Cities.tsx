@@ -2,13 +2,15 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { CityCard } from "@/components/home/CityCard";
 import { CityPagination } from "@/components/CityPagination";
 import { City } from "@/types";
 import { fetchCities } from "@/services/dataService";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Search } from "lucide-react";
+import { Search, MapPin, Calendar, Globe, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const Cities = () => {
   const [cities, setCities] = useState<City[]>([]);
@@ -16,7 +18,11 @@ const Cities = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const citiesPerPage = 6;
+  const navigate = useNavigate();
+  
+  const regions = ["North", "South", "East", "West"];
 
   useEffect(() => {
     const loadCities = async () => {
@@ -35,21 +41,28 @@ const Cities = () => {
   }, []);
 
   useEffect(() => {
-    if (searchQuery.trim() === "") {
-      setFilteredCities(cities);
-    } else {
+    let filtered = cities;
+    
+    // Filter by region if selected
+    if (selectedRegion) {
+      filtered = filtered.filter(city => city.region === selectedRegion);
+    }
+    
+    // Filter by search query
+    if (searchQuery.trim() !== "") {
       const lowercaseQuery = searchQuery.toLowerCase();
-      const filtered = cities.filter(
+      filtered = filtered.filter(
         city =>
           city.name.toLowerCase().includes(lowercaseQuery) ||
           city.state.toLowerCase().includes(lowercaseQuery) ||
           city.description.toLowerCase().includes(lowercaseQuery)
       );
-      setFilteredCities(filtered);
     }
-    // Reset to first page when search query changes
+    
+    setFilteredCities(filtered);
+    // Reset to first page when filters change
     setCurrentPage(1);
-  }, [searchQuery, cities]);
+  }, [searchQuery, cities, selectedRegion]);
 
   // Get current page cities
   const indexOfLastCity = currentPage * citiesPerPage;
@@ -86,9 +99,29 @@ const Cities = () => {
           </div>
         </div>
         
-        <div className="container py-10">
+        <div className="container py-8">
+          <div className="flex flex-wrap gap-2 mb-6 justify-center">
+            <Button 
+              variant={selectedRegion === null ? "default" : "outline"}
+              onClick={() => setSelectedRegion(null)}
+              className={selectedRegion === null ? "bg-travel-teal-500 hover:bg-travel-teal-600" : ""}
+            >
+              All Regions
+            </Button>
+            {regions.map(region => (
+              <Button 
+                key={region}
+                variant={selectedRegion === region ? "default" : "outline"}
+                onClick={() => setSelectedRegion(region)}
+                className={selectedRegion === region ? "bg-travel-teal-500 hover:bg-travel-teal-600" : ""}
+              >
+                {region} India
+              </Button>
+            ))}
+          </div>
+          
           {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[...Array(citiesPerPage)].map((_, i) => (
                 <div key={i} className="flex flex-col gap-3">
                   <Skeleton className="h-48 w-full rounded-lg" />
@@ -103,9 +136,45 @@ const Cities = () => {
             <>
               {filteredCities.length > 0 ? (
                 <>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {currentCities.map((city) => (
-                      <CityCard key={city.id} city={city} />
+                      <Card key={city.id} className="overflow-hidden border rounded-md shadow hover:shadow-md transition-shadow">
+                        <div className="h-40 overflow-hidden">
+                          <img 
+                            src={city.imageUrl || "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e"}
+                            alt={city.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="p-4">
+                          <h3 className="font-semibold text-lg mb-2 text-black">{city.name}</h3>
+                          <div className="text-sm text-gray-600 space-y-2">
+                            <div className="flex items-center gap-1">
+                              <MapPin className="h-4 w-4 text-travel-teal-500" />
+                              <span>{city.state}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Calendar className="h-4 w-4 text-travel-teal-500" />
+                              <span>Best time: {city.bestTimeToVisit}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Globe className="h-4 w-4 text-travel-teal-500" />
+                              <span>Languages: {city.languages.slice(0, 2).join(", ")}</span>
+                            </div>
+                          </div>
+                          <div className="mt-3">
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="w-full text-travel-blue-600 border-travel-blue-200 hover:border-travel-blue-400 hover:bg-travel-blue-50"
+                              onClick={() => navigate(`/city/${city.id}`)}
+                            >
+                              View Details
+                              <ChevronRight className="h-4 w-4 ml-1" />
+                            </Button>
+                          </div>
+                        </div>
+                      </Card>
                     ))}
                   </div>
                   

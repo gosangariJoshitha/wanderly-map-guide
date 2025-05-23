@@ -16,7 +16,7 @@ export function HowItWorks() {
           {/* Step 1 */}
           <div className="flex flex-col items-center text-center">
             <div className="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center mb-6">
-              <MapPin className="w-10 h-10 text-travel-teal-500" />
+              <MapPin className="w-10 h-10 text-blue-500" />
             </div>
             <h3 className="text-3xl font-bold text-gray-800 mb-4">1. Discover</h3>
             <p className="text-gray-600 text-xl max-w-md mx-auto">
@@ -27,7 +27,7 @@ export function HowItWorks() {
           {/* Step 2 */}
           <div className="flex flex-col items-center text-center">
             <div className="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center mb-6">
-              <Clock className="w-10 h-10 text-travel-teal-500" />
+              <Clock className="w-10 h-10 text-blue-500" />
             </div>
             <h3 className="text-3xl font-bold text-gray-800 mb-4">2. Plan</h3>
             <p className="text-gray-600 text-xl max-w-md mx-auto">
@@ -38,7 +38,7 @@ export function HowItWorks() {
           {/* Step 3 */}
           <div className="flex flex-col items-center text-center">
             <div className="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center mb-6">
-              <Star className="w-10 h-10 text-travel-teal-500" />
+              <Star className="w-10 h-10 text-blue-500" />
             </div>
             <h3 className="text-3xl font-bold text-gray-800 mb-4">3. Experience</h3>
             <p className="text-gray-600 text-xl max-w-md mx-auto">
