@@ -75,7 +75,7 @@ export function PopularPlaces() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                     <div className="absolute bottom-6 left-6">
-                      <p className="text-white/90 flex items-center mb-1">
+                      <p className="text-white flex items-center mb-1">
                         {attraction.location.address.split(',').slice(-2, -1)[0]}
                       </p>
                       <h3 className="text-3xl font-bold text-white">{attraction.name}</h3>

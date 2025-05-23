@@ -41,9 +41,7 @@ const Index = () => {
         {/* Popular Places Section */}
         <PopularPlaces />
         
-        {/* How It Works Section */}
-        <HowItWorks />
-        
+        {/* View All Cities Button */}
         <div className="flex justify-center mt-10 mb-16">
           <Link to="/cities">
             <Button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-2 text-base rounded-full flex items-center">
@@ -52,6 +50,9 @@ const Index = () => {
             </Button>
           </Link>
         </div>
+        
+        {/* How It Works Section */}
+        <HowItWorks />
       </main>
       
       <Footer />
