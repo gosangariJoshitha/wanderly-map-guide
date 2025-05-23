@@ -12,6 +12,7 @@ export interface City {
   attractionsCount: number;
   population: string;
   famousFor?: string[];
+  rating?: number; // Add rating as an optional property
   coordinates: {
     lat: number;
     lng: number;

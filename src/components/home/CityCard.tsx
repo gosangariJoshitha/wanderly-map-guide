@@ -11,6 +11,9 @@ interface CityCardProps {
 }
 
 export function CityCard({ city }: CityCardProps) {
+  // Set a default rating of 4 if rating is undefined
+  const rating = city.rating || 4;
+  
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.01] border-0 rounded-xl">
       <div className="relative h-72 overflow-hidden">
@@ -23,13 +26,13 @@ export function CityCard({ city }: CityCardProps) {
           <div className="absolute bottom-8 left-6">
             <h3 className="text-4xl font-bold text-white">{city.name}</h3>
             <div className="flex mt-2">
-              {[...Array(Math.floor(city.rating || 4))].map((_, i) => (
+              {[...Array(Math.floor(rating))].map((_, i) => (
                 <span key={i} className="text-yellow-400 text-2xl">★</span>
               ))}
-              {city.rating && !Number.isInteger(city.rating) && (
+              {!Number.isInteger(rating) && (
                 <span className="text-yellow-400 text-2xl">★</span>
               )}
-              {[...Array(5 - Math.ceil(city.rating || 4))].map((_, i) => (
+              {[...Array(5 - Math.ceil(rating))].map((_, i) => (
                 <span key={i} className="text-yellow-400 text-2xl opacity-40">★</span>
               ))}
             </div>
