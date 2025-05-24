@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MapPin, Search, Menu, User, ArrowLeft, LogOut, Home, Map, Building, Bus, X } from "lucide-react";
+import { MapPin, Search, Menu, User, X, Home, Map, Building } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import {
   Drawer,
@@ -121,13 +121,80 @@ export function Navbar() {
             </Button>
           </DrawerTrigger>
           <DrawerContent className="left-0 right-auto w-full max-w-[320px] data-[state=open]:slide-in-from-left">
-            <div className="absolute top-4 right-4">
-              <DrawerClose asChild>
-                <Button variant="ghost" size="icon">
-                  <X className="h-6 w-6" />
-                  <span className="sr-only">Close</span>
-                </Button>
-              </DrawerClose>
+            <DrawerHeader className="border-b">
+              <div className="flex items-center justify-between">
+                <DrawerTitle className="flex items-center gap-2">
+                  <MapPin className="h-5 w-5 text-travel-blue-500" />
+                  <span className="font-poppins text-lg font-bold text-travel-blue-600">
+                    City<span className="text-travel-teal-500">Wander</span>
+                  </span>
+                </DrawerTitle>
+                <DrawerClose asChild>
+                  <Button variant="ghost" size="icon">
+                    <X className="h-5 w-5" />
+                  </Button>
+                </DrawerClose>
+              </div>
+            </DrawerHeader>
+            
+            <div className="p-6 space-y-6">
+              <form onSubmit={handleSearch} className="relative">
+                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Input
+                  type="search"
+                  placeholder="Search cities..."
+                  className="w-full pl-8 pr-4"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </form>
+
+              <nav className="space-y-4">
+                <Link to="/" className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors">
+                  <Home className="h-5 w-5" />
+                  Home
+                </Link>
+                <Link to="/cities" className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors">
+                  <Building className="h-5 w-5" />
+                  Cities
+                </Link>
+                <Link to="/travel-guide" className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors">
+                  <Map className="h-5 w-5" />
+                  Travel Guide
+                </Link>
+              </nav>
+
+              <div className="border-t pt-6">
+                {isAuthenticated ? (
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-full bg-travel-teal-100 flex items-center justify-center">
+                        <User className="h-4 w-4 text-travel-teal-600" />
+                      </div>
+                      <div>
+                        <p className="font-medium">{currentUser?.username || 'Traveler'}</p>
+                        <p className="text-xs text-gray-500">{currentUser?.email}</p>
+                      </div>
+                    </div>
+                    <Button variant="outline" onClick={handleLogout} className="w-full">
+                      Log out
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    <Link to="/login" className="block">
+                      <Button variant="outline" className="w-full">
+                        Log in
+                      </Button>
+                    </Link>
+                    <Link to="/register" className="block">
+                      <Button className="w-full">
+                        Sign up
+                      </Button>
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           </DrawerContent>
         </Drawer>

@@ -68,6 +68,16 @@ export function Footer() {
                   Hyderabad
                 </Link>
               </li>
+              <li>
+                <Link to="/city/bengaluru" className="text-sm text-gray-300 hover:text-travel-teal-400 transition">
+                  Bangalore
+                </Link>
+              </li>
+              <li>
+                <Link to="/city/kolkata" className="text-sm text-gray-300 hover:text-travel-teal-400 transition">
+                  Kolkata
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
