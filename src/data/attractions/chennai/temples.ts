@@ -6,7 +6,7 @@ export const chennaiTempleAttractions: Attraction[] = [
     id: "kapaleeshwarar-temple",
     name: "Kapaleeshwarar Temple",
     description: "One of Chennai's oldest and most famous temples dedicated to Lord Shiva, known for its impressive Dravidian architecture with a towering 120-foot gopuram (gateway tower) adorned with intricate sculptures and carvings. The temple's history dates back to the 7th century, though the current structure was rebuilt in the 16th century.",
-    imageUrl: "https://images.unsplash.com/photo-1626196340105-9ec9339b1e6d?q=80&w=800&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1626196340105-9ec9339b1e6d?q=80&w=800&auto=format&fit=crop","https://images.app.goo.gl/vrUfdiXLJDhtgM6H6","https://images.app.goo.gl/TEXH8grCpw8FQKAi6","https://images.app.goo.gl/H7kzL9p8HaTDGMa88",
     location: {
       address: "Mylapore, Chennai, Tamil Nadu 600004",
       coordinates: {
