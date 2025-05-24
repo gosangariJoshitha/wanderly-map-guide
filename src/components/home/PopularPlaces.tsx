@@ -65,42 +65,44 @@ export function PopularPlaces() {
         ) : (
           <div className="space-y-6">
             {attractions.map((attraction) => (
-              <Card key={attraction.id} className="overflow-hidden border-0 rounded-2xl shadow-lg">
-                <div className="relative h-80 overflow-hidden">
-                  <img 
-                    src={attraction.imageUrl} 
-                    alt={attraction.name} 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
-                    <div className="absolute bottom-6 left-6">
-                      <div className="flex items-center gap-2 mb-2">
-                        <MapPin className="h-4 w-4 text-white" />
-                        <p className="text-white text-sm">
-                          {attraction.location.address.split(',').slice(-2, -1)[0].trim()}
-                        </p>
-                      </div>
-                      <h3 className="text-3xl font-bold text-white mb-3">{attraction.name}</h3>
-                      <div className="flex gap-2">
-                        <Badge className="bg-orange-500 hover:bg-orange-600 text-white">
-                          {attraction.category === 'temple' ? 'Temple' : 
-                           attraction.category === 'tourist' ? 'Monument' : 'Landmark'}
-                        </Badge>
-                        <Badge className="bg-blue-500 hover:bg-blue-600 text-white">
-                          Tourist Places
-                        </Badge>
+              <Link key={attraction.id} to={`/attraction/${attraction.id}`}>
+                <Card className="overflow-hidden border-0 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+                  <div className="relative h-80 overflow-hidden">
+                    <img 
+                      src={attraction.imageUrl} 
+                      alt={attraction.name} 
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+                      <div className="absolute bottom-6 left-6">
+                        <div className="flex items-center gap-2 mb-2">
+                          <MapPin className="h-4 w-4 text-white" />
+                          <p className="text-white text-sm">
+                            {attraction.location.address.split(',').slice(-2, -1)[0].trim()}
+                          </p>
+                        </div>
+                        <h3 className="text-3xl font-bold text-white mb-3">{attraction.name}</h3>
+                        <div className="flex gap-2">
+                          <Badge className="bg-orange-500 hover:bg-orange-600 text-white">
+                            {attraction.category === 'temple' ? 'Temple' : 
+                             attraction.category === 'tourist' ? 'Monument' : 'Landmark'}
+                          </Badge>
+                          <Badge className="bg-blue-500 hover:bg-blue-600 text-white">
+                            Tourist Places
+                          </Badge>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <p className="text-gray-700 leading-relaxed">
-                    {attraction.description.length > 200 
-                      ? `${attraction.description.substring(0, 200)}...` 
-                      : attraction.description}
-                  </p>
-                </div>
-              </Card>
+                  <div className="p-6">
+                    <p className="text-gray-700 leading-relaxed">
+                      {attraction.description.length > 200 
+                        ? `${attraction.description.substring(0, 200)}...` 
+                        : attraction.description}
+                    </p>
+                  </div>
+                </Card>
+              </Link>
             ))}
           </div>
         )}

@@ -114,13 +114,13 @@ export function Navbar() {
         </nav>
 
         {/* Mobile Menu Button / Drawer Trigger */}
-        <Drawer>
+        <Drawer direction="left">
           <DrawerTrigger asChild>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="h-6 w-6" />
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="left-0 right-auto w-full max-w-[320px] data-[state=open]:slide-in-from-left">
+          <DrawerContent className="h-full w-80 max-w-[80vw]">
             <DrawerHeader className="border-b">
               <div className="flex items-center justify-between">
                 <DrawerTitle className="flex items-center gap-2">
@@ -138,30 +138,25 @@ export function Navbar() {
             </DrawerHeader>
             
             <div className="p-6 space-y-6">
-              <form onSubmit={handleSearch} className="relative">
-                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input
-                  type="search"
-                  placeholder="Search cities..."
-                  className="w-full pl-8 pr-4"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </form>
-
               <nav className="space-y-4">
-                <Link to="/" className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors">
-                  <Home className="h-5 w-5" />
-                  Home
-                </Link>
-                <Link to="/cities" className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors">
-                  <Building className="h-5 w-5" />
-                  Cities
-                </Link>
-                <Link to="/travel-guide" className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors">
-                  <Map className="h-5 w-5" />
-                  Travel Guide
-                </Link>
+                <DrawerClose asChild>
+                  <Link to="/" className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors">
+                    <Home className="h-5 w-5" />
+                    Home
+                  </Link>
+                </DrawerClose>
+                <DrawerClose asChild>
+                  <Link to="/cities" className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors">
+                    <Building className="h-5 w-5" />
+                    Cities
+                  </Link>
+                </DrawerClose>
+                <DrawerClose asChild>
+                  <Link to="/travel-guide" className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors">
+                    <Map className="h-5 w-5" />
+                    Travel Guide
+                  </Link>
+                </DrawerClose>
               </nav>
 
               <div className="border-t pt-6">
@@ -176,22 +171,28 @@ export function Navbar() {
                         <p className="text-xs text-gray-500">{currentUser?.email}</p>
                       </div>
                     </div>
-                    <Button variant="outline" onClick={handleLogout} className="w-full">
-                      Log out
-                    </Button>
+                    <DrawerClose asChild>
+                      <Button variant="outline" onClick={handleLogout} className="w-full">
+                        Log out
+                      </Button>
+                    </DrawerClose>
                   </div>
                 ) : (
                   <div className="space-y-3">
-                    <Link to="/login" className="block">
-                      <Button variant="outline" className="w-full">
-                        Log in
-                      </Button>
-                    </Link>
-                    <Link to="/register" className="block">
-                      <Button className="w-full">
-                        Sign up
-                      </Button>
-                    </Link>
+                    <DrawerClose asChild>
+                      <Link to="/login" className="block">
+                        <Button variant="outline" className="w-full">
+                          Log in
+                        </Button>
+                      </Link>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <Link to="/register" className="block">
+                        <Button className="w-full">
+                          Sign up
+                        </Button>
+                      </Link>
+                    </DrawerClose>
                   </div>
                 )}
               </div>
