@@ -8,6 +8,13 @@ export const touristAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "Built in 1591, this iconic monument is a symbol of Hyderabad with its four grand arches and minarets. The structure was built to commemorate the eradication of plague from the city and houses a mosque on its top floor.",
     imageUrl: "https://images.unsplash.com/photo-1588416499018-d8c621e3e257?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1588416499018-d8c621e3e257?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1605540436563-5bca919ae766?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1605622192161-67ea2b2e1e00?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1545126133-4f0b279a3dac?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.7,
     category: "tourist",
     reviews: [
@@ -57,6 +64,13 @@ export const touristAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "This majestic fort dating back to the 13th century features impressive acoustic effects where a hand clap at the entrance can be heard at the highest point. The fort was once home to the famous Kohinoor diamond.",
     imageUrl: "https://images.unsplash.com/photo-1590063603240-71d53e69dbc6?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1590063603240-71d53e69dbc6?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588416499018-d8c621e3e257?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1605540436563-5bca919ae766?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1545126133-4f0b279a3dac?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.5,
     category: "tourist",
     reviews: [
@@ -98,6 +112,13 @@ export const touristAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "One of the three National Museums of India, it houses a unique collection of sculptures, paintings, carvings, and other artifacts from around the world, including the famous Veiled Rebecca sculpture.",
     imageUrl: "https://images.unsplash.com/photo-1613727798351-1c890fd8b98c?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1613727798351-1c890fd8b98c?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1584037013349-8c598fc90da7?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1584711725090-bf04ed6dd879?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1565705732022-83642c809afc?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1613727798351-1c890fd8b98c?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.6,
     category: "tourist",
     reviews: [
@@ -139,6 +160,13 @@ export const touristAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "Recognized by the Guinness Book of World Records as the world's largest film studio complex, it spans 1,666 acres and offers tours, attractions, and a glimpse into movie production.",
     imageUrl: "https://images.unsplash.com/photo-1533075377664-f5c0cbc5a91c?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1533075377664-f5c0cbc5a91c?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1570073131906-dbdaaa4ce7ee?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1503792501406-2c40da09e1e2?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.3,
     category: "tourist",
     reviews: [
@@ -180,6 +208,13 @@ export const touristAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "This heart-shaped artificial lake built in 1563 features a massive 18-meter tall Buddha statue installed on Gibraltar Rock in the middle of the lake. Boat rides and the surrounding Lumbini Park are popular attractions.",
     imageUrl: "https://images.unsplash.com/photo-1626931067455-bc3ed7f75b99?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1626931067455-bc3ed7f75b99?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1569860138092-8bab98c8a55f?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1516214104703-d870798883c5?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.4,
     category: "tourist",
     reviews: [
@@ -225,6 +260,13 @@ export const templeAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "This stunning white marble temple dedicated to Lord Venkateshwara stands on a 280-foot high hill called Naubath Pahad. Built in 1976, it offers panoramic views of the city and Twin Lakes.",
     imageUrl: "https://images.unsplash.com/photo-1613570192443-5dddc3c16390?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1613570192443-5dddc3c16390?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1606393777429-3962f8faa459?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1618782434072-e577be1b2e0c?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1606294790380-c4b36cfb8401?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1615887480363-e6b27cc12de2?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.8,
     category: "temple",
     reviews: [
@@ -266,6 +308,13 @@ export const templeAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "One of the oldest and largest mosques in India, it was built in 1614 during Muhammad Quli Qutb Shah's reign. The main hall can accommodate 10,000 worshippers, and bricks made from soil brought from Mecca are used in the central arch.",
     imageUrl: "https://images.unsplash.com/photo-1621495471660-e1fc467c8731?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1621495471660-e1fc467c8731?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1588416499018-d8c621e3e257?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1584037013349-8c598fc90da7?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1584711725090-bf04ed6dd879?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1565705732022-83642c809afc?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.5,
     category: "temple",
     reviews: [
@@ -307,6 +356,13 @@ export const templeAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "A replica of the famous Jagannath Temple of Puri, this temple in Hyderabad is dedicated to Lord Jagannath, Lord Balabhadra, and Devi Subhadra. The annual Rath Yatra festival draws thousands of devotees.",
     imageUrl: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1566438480900-0609be27a4be?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1615887480363-e6b27cc12de2?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1618623266812-a0cc5992df13?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1592549585866-486f41343aaf?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1606393777429-3962f8faa459?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.6,
     category: "temple",
     reviews: [
@@ -348,6 +404,13 @@ export const templeAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "Known as 'Visa Balaji Temple', it's famous for granting visa wishes to devotees who circumambulate the shrine 11 times. It's one of the oldest temples in Hyderabad, dating back to the 10th century.",
     imageUrl: "https://images.unsplash.com/photo-1613727799683-a152038ec306?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1613727799683-a152038ec306?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1606393777429-3962f8faa459?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1615887480363-e6b27cc12de2?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1618782434072-e577be1b2e0c?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1592549585866-486f41343aaf?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.7,
     category: "temple",
     reviews: [
@@ -389,6 +452,13 @@ export const templeAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "This temple dedicated to Goddess Peddamma (a form of Durga) is one of the oldest and most popular temples in the Jubilee Hills area of Hyderabad. The annual Bonalu festival is celebrated with great enthusiasm here.",
     imageUrl: "https://images.unsplash.com/photo-1582717171950-a54fa275cb62?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1582717171950-a54fa275cb62?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1615887480363-e6b27cc12de2?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1606393777429-3962f8faa459?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1618623266812-a0cc5992df13?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1592549585866-486f41343aaf?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.5,
     category: "temple",
     reviews: [
@@ -434,6 +504,13 @@ export const otherAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "This museum showcases the gifts and memorabilia received by the last Nizam of Hyderabad, Mir Osman Ali Khan. Highlights include a 1930s Rolls Royce, gold burnished wooden throne, and the world's largest wardrobe.",
     imageUrl: "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1584037013349-8c598fc90da7?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1584711725090-bf04ed6dd879?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1565705732022-83642c809afc?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1613727798351-1c890fd8b98c?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.2,
     category: "other",
     reviews: [
@@ -475,6 +552,13 @@ export const otherAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "Named after Buddha's birthplace, this urban park offers musical fountain shows, laser shows, and boating facilities. Located near Hussain Sagar Lake, it's a perfect evening destination for families.",
     imageUrl: "https://images.unsplash.com/photo-1516214104703-d870798883c5?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1516214104703-d870798883c5?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1569860138092-8bab98c8a55f?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1626931067455-bc3ed7f75b99?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.1,
     category: "other",
     reviews: [
@@ -516,6 +600,13 @@ export const otherAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "One of the largest zoos in India, it houses nearly 1,500 species of birds, animals, and reptiles in near-natural habitats. The zoo also features a natural history museum and a train ride through the premises.",
     imageUrl: "https://images.unsplash.com/photo-1536421469767-80559bb6f5e1?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1536421469767-80559bb6f5e1?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1549366021-9f761d040a94?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1520034650770-75d4c9df6e9a?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.3,
     category: "other",
     reviews: [
@@ -557,6 +648,13 @@ export const otherAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "This arts and crafts village showcases traditional handicrafts from different parts of India. With artificial waterfalls, rock formations, and an ethnic museum, it offers insights into rural Indian lifestyle.",
     imageUrl: "https://images.unsplash.com/photo-1558383385-c33cb4fbc2dc?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1558383385-c33cb4fbc2dc?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1574279607937-1c3b9bf08b98?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600189020840-43537dc4f3a0?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1558383738-8e1da9a45d82?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1569860138092-8bab98c8a55f?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.4,
     category: "other",
     reviews: [
@@ -598,6 +696,13 @@ export const otherAttractions: Attraction[] = [
     cityId: "hyderabad",
     description: "Formerly the hunting grounds of the Nizams, this 400-acre urban jungle offers walking trails, jogging tracks, and opportunities to spot over 600 plant species and 140 bird species. A peaceful retreat in the bustling city.",
     imageUrl: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=800&auto=format&fit=crop",
+    galleryImages: [
+      "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1569860138092-8bab98c8a55f?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1516214104703-d870798883c5?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1520034650770-75d4c9df6e9a?q=80&w=1200&auto=format&fit=crop"
+    ],
     rating: 4.5,
     category: "other",
     reviews: [
