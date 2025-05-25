@@ -3,6 +3,16 @@ import { City } from "@/types";
 import { Share2, MapPin } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 
+// City-specific header images
+const cityHeaderImages = {
+  mumbai: "https://images.unsplash.com/photo-1595658658481-d53d3f999875?q=80&w=1200&auto=format&fit=crop",
+  delhi: "https://images.unsplash.com/photo-1586974669615-0c33e98ca27f?q=80&w=1200&auto=format&fit=crop",
+  bengaluru: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=1200&auto=format&fit=crop",
+  chennai: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1200&auto=format&fit=crop",
+  kolkata: "https://images.unsplash.com/photo-1558431382-27e303142255?q=80&w=1200&auto=format&fit=crop",
+  hyderabad: "https://images.unsplash.com/photo-1629734885899-4b79bce78b5e?q=80&w=1200&auto=format&fit=crop"
+};
+
 interface CityHeaderProps {
   city: City;
 }
@@ -39,13 +49,16 @@ export function CityHeader({ city }: CityHeaderProps) {
     }
   };
 
+  // Use city-specific image if available, otherwise fallback to city.imageUrl
+  const cityImage = cityHeaderImages[city.id as keyof typeof cityHeaderImages] || city.imageUrl;
+
   return (
     <div className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
       {/* City image */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ 
-          backgroundImage: `url(${city.imageUrl})`,
+          backgroundImage: `url(${cityImage})`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>

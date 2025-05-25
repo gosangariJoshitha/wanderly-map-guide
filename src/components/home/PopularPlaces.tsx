@@ -9,6 +9,16 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Attraction } from '@/types';
 import ATTRACTIONS from '@/data/attractions';
 
+// City-specific hero images
+const cityImages = {
+  mumbai: "https://images.unsplash.com/photo-1595658658481-d53d3f999875?q=80&w=800&auto=format&fit=crop",
+  delhi: "https://images.unsplash.com/photo-1586974669615-0c33e98ca27f?q=80&w=800&auto=format&fit=crop",
+  bengaluru: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=800&auto=format&fit=crop",
+  chennai: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=800&auto=format&fit=crop",
+  kolkata: "https://images.unsplash.com/photo-1558431382-27e303142255?q=80&w=800&auto=format&fit=crop",
+  hyderabad: "https://images.unsplash.com/photo-1629734885899-4b79bce78b5e?q=80&w=800&auto=format&fit=crop"
+};
+
 export function PopularPlaces() {
   const [attractions, setAttractions] = useState<Attraction[]>([]);
   const [loading, setLoading] = useState(true);
@@ -30,9 +40,18 @@ export function PopularPlaces() {
           }
         });
         
-        // Shuffle and take the top 4 attractions
+        // Shuffle and take the top 4 attractions with better images
         const shuffled = allAttractions.sort(() => 0.5 - Math.random());
-        setAttractions(shuffled.slice(0, 4));
+        const selectedAttractions = shuffled.slice(0, 4).map(attraction => {
+          // Use city-specific images if available
+          const cityImage = cityImages[attraction.cityId as keyof typeof cityImages];
+          return {
+            ...attraction,
+            imageUrl: cityImage || attraction.imageUrl
+          };
+        });
+        
+        setAttractions(selectedAttractions);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching popular attractions:", error);

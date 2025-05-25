@@ -46,13 +46,16 @@ export function AttractionHeader({ attraction }: AttractionHeaderProps) {
     navigate("/travel-guide");
   };
 
+  // Use higher resolution image for header
+  const headerImage = attraction.imageUrl.replace('w=800', 'w=1200');
+
   return (
     <div className="relative h-72 sm:h-80 lg:h-96 overflow-hidden">
       {/* Attraction image */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ 
-          backgroundImage: `url(${attraction.imageUrl})`,
+          backgroundImage: `url(${headerImage})`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30"></div>
